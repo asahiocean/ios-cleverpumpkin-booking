@@ -16,6 +16,10 @@
 		3D93A5D4256301B60066616E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D93A5D2256301B60066616E /* LaunchScreen.storyboard */; };
 		3D93A5DF256301B60066616E /* BookingProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A5DE256301B60066616E /* BookingProjectTests.swift */; };
 		3D93A5EA256301B60066616E /* BookingProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A5E9256301B60066616E /* BookingProjectUITests.swift */; };
+		3D93A60F25631BAC0066616E /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A60E25631BAC0066616E /* HotelModel.swift */; };
+		3D93A61925632E6F0066616E /* MainCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A61825632E6F0066616E /* MainCatalog.swift */; };
+		3D93A61F256330C00066616E /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A61E256330C00066616E /* URLs.swift */; };
+		3D93A627256330DB0066616E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A626256330DB0066616E /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		3D93A5E5256301B60066616E /* BookingProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookingProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D93A5E9256301B60066616E /* BookingProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingProjectUITests.swift; sourceTree = "<group>"; };
 		3D93A5EB256301B60066616E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D93A60E25631BAC0066616E /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
+		3D93A61825632E6F0066616E /* MainCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCatalog.swift; sourceTree = "<group>"; };
+		3D93A61E256330C00066616E /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		3D93A626256330DB0066616E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 		3D93A5C3256301B50066616E /* BookingProject */ = {
 			isa = PBXGroup;
 			children = (
+				3D93A61D256330B00066616E /* API */,
 				3D93A5C4256301B50066616E /* AppDelegate.swift */,
 				3D93A5C6256301B50066616E /* SceneDelegate.swift */,
 				3D93A5C8256301B50066616E /* ViewController.swift */,
@@ -109,6 +118,7 @@
 				3D93A5D2256301B60066616E /* LaunchScreen.storyboard */,
 				3D93A5D5256301B60066616E /* Info.plist */,
 				3D93A5CD256301B50066616E /* BookingProject.xcdatamodeld */,
+				3D93A61825632E6F0066616E /* MainCatalog.swift */,
 			);
 			path = BookingProject;
 			sourceTree = "<group>";
@@ -129,6 +139,24 @@
 				3D93A5EB256301B60066616E /* Info.plist */,
 			);
 			path = BookingProjectUITests;
+			sourceTree = "<group>";
+		};
+		3D93A60D25631B990066616E /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				3D93A60E25631BAC0066616E /* HotelModel.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		3D93A61D256330B00066616E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3D93A60D25631B990066616E /* JSON */,
+				3D93A61E256330C00066616E /* URLs.swift */,
+				3D93A626256330DB0066616E /* API.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +289,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D93A60F25631BAC0066616E /* HotelModel.swift in Sources */,
 				3D93A5C9256301B50066616E /* ViewController.swift in Sources */,
 				3D93A5C5256301B50066616E /* AppDelegate.swift in Sources */,
+				3D93A61F256330C00066616E /* URLs.swift in Sources */,
 				3D93A5C7256301B50066616E /* SceneDelegate.swift in Sources */,
+				3D93A61925632E6F0066616E /* MainCatalog.swift in Sources */,
+				3D93A627256330DB0066616E /* API.swift in Sources */,
 				3D93A5CF256301B50066616E /* BookingProject.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
