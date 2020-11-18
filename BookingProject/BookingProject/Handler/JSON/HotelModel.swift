@@ -8,8 +8,9 @@ import UIKit.UIImage
     var stars: Int
     var distance: Double
     var suitesAvailability: String
+    
     var image: UIImage
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name, address, stars, distance
         case suitesAvailability = "suites_availability"
@@ -22,6 +23,7 @@ import UIKit.UIImage
         self.stars = stars ?? 0
         self.distance = distance ?? 0.0
         self.suitesAvailability = suitesAvailability ?? ""
+        
         self.image = UIImage()
     }
         
@@ -45,5 +47,4 @@ import UIKit.UIImage
         try container.encode(distance, forKey: .distance)
         try container.encode(suitesAvailability, forKey: .suitesAvailability)
     }
-
 }

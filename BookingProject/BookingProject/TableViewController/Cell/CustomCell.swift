@@ -12,6 +12,8 @@ class CustomCell: UITableViewCell {
             
         }
     }
+    
+    var interactionMap: UIContextMenuInteraction!
         
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +36,7 @@ class CustomCell: UITableViewCell {
 }
 extension CustomCell {
     internal func loadImageIndicator() {
-        let spinner = UIActivityIndicatorView(style: .large)
+        let spinner = UIActivityIndicatorView(style: .medium)
         spinner.hidesWhenStopped = true
         spinner.autoresizingMask = [.flexibleWidth,.flexibleHeight]
         spinner.center = imageview.center
