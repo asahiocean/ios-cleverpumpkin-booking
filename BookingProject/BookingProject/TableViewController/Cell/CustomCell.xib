@@ -8,22 +8,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" id="BEe-TP-1QQ" customClass="CustomCell" customModule="BookingProject" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="60" id="BEe-TP-1QQ" customClass="CustomCell" customModule="BookingProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BEe-TP-1QQ" id="ZBN-Yu-UYQ">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Giu-Yn-FQs">
-                        <rect key="frame" x="5" y="5" width="34" height="34"/>
+                        <rect key="frame" x="5" y="5" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Giu-Yn-FQs" secondAttribute="height" multiplier="1:1" id="DVo-jy-eGY"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utl-8b-HHB">
-                        <rect key="frame" x="47" y="11" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utl-8b-HHB">
+                        <rect key="frame" x="65" y="5" width="215" height="20.333333333333332"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -34,13 +33,16 @@
                     <constraint firstItem="Giu-Yn-FQs" firstAttribute="leading" secondItem="ZBN-Yu-UYQ" secondAttribute="leading" constant="5" id="IQv-EV-mKF"/>
                     <constraint firstItem="Giu-Yn-FQs" firstAttribute="top" secondItem="ZBN-Yu-UYQ" secondAttribute="top" constant="5" id="TMi-AE-pdy"/>
                     <constraint firstAttribute="bottom" secondItem="Giu-Yn-FQs" secondAttribute="bottom" constant="5" id="aFU-37-bOu"/>
+                    <constraint firstItem="Utl-8b-HHB" firstAttribute="leading" secondItem="Giu-Yn-FQs" secondAttribute="trailing" constant="10" id="gxl-ep-BKJ"/>
+                    <constraint firstItem="Utl-8b-HHB" firstAttribute="top" secondItem="Giu-Yn-FQs" secondAttribute="top" id="pmn-aW-Vln"/>
+                    <constraint firstAttribute="trailing" secondItem="Utl-8b-HHB" secondAttribute="trailing" constant="20" id="xMg-Pm-Y9I"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="imageview" destination="Giu-Yn-FQs" id="ZYv-9d-GWM"/>
                 <outlet property="label" destination="Utl-8b-HHB" id="Lrh-Xp-HOx"/>
             </connections>
-            <point key="canvasLocation" x="72" y="16"/>
+            <point key="canvasLocation" x="-11.594202898550726" y="22.010869565217394"/>
         </tableViewCell>
     </objects>
 </document>

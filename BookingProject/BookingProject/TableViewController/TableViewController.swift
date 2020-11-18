@@ -25,7 +25,7 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = (tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell) {
-            cell.set(hotel: posts[indexPath.row])
+            cell.hotel(posts[indexPath.row])
             return cell
         } else {
             let cell = UITableViewCell(style: .value1, reuseIdentifier: CustomCell.identifier)
