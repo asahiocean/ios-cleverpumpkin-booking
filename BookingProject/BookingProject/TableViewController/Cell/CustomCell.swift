@@ -1,4 +1,5 @@
 import UIKit
+import Nuke
 
 class CustomCell: UITableViewCell {
 
@@ -6,51 +7,40 @@ class CustomCell: UITableViewCell {
     static var nib: UINib { UINib(nibName: identifier, bundle: nil )}
 
     @IBOutlet weak var imageview: UIImageView!
-    @IBOutlet weak var label: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        imageview.layer.cornerRadius = 10
-        
-        let activityView = UIActivityIndicatorView(style: .large)
-        activityView.center = imageview.center
-        activityView.startAnimating()
-        imageview.addSubview(activityView)
-    }
-    
-    func qweqwe(size: CGSize) -> UIImage {
-        return UIGraphicsImageRenderer(size: size).image { context in
-            context.fill(CGRect(origin: .zero, size: size))
+    @IBOutlet weak var label: UILabel! {
+        didSet {
+            
         }
     }
     
-    func set(hotel: Hotel) {
+    var interactionMap: UIContextMenuInteraction!
+        
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        loadImageIndicator()
+        imageview.layer.cornerRadius = 10
+    }
+        
+    func hotel(_ hotel: Hotel) {
         print(hotel.name)
         
         label.text = hotel.name
         
-        let hotelname = hotel.name.replacingOccurrences(of: " ", with: "%20")
-        if let url = URL(string: "https://dummyimage.com/400/\(hotel.id)/ffffff&text=\(hotelname)") {
-            do {
-                let data = try Data(contentsOf: url)
-                let image = UIImage(data: data)
-                self.imageview.image = image
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
-        }
+        let _name = hotel.name.replacingOccurrences(of: " ", with: "%20")
+        let _url = "https://dummyimage.com/400/\(hotel.id)/ffffff&text=\(_name)"
+        API.loadImage(_url, { [self] image -> Void in
+            _ = imageview.subviews.map({$0.removeFromSuperview()})
+            imageview.image = image
+        })
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    override init(style: CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+}
+extension CustomCell {
+    internal func loadImageIndicator() {
+        let spinner = UIActivityIndicatorView(style: .medium)
+        spinner.hidesWhenStopped = true
+        spinner.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+        spinner.center = imageview.center
+        spinner.startAnimating()
+        imageview.addSubview(spinner)
     }
 }

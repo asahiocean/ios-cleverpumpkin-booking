@@ -7,6 +7,7 @@ public var estimatedRowHeight: CGFloat = UIScreen.main.bounds.height/10
 class TableViewController: UITableViewController {
     
     private var posts: [Hotel]!
+    var interactionMap: UIContextMenuInteraction!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = (tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell) {
-            cell.set(hotel: posts[indexPath.row])
+            cell.hotel(posts[indexPath.row])
             return cell
         } else {
             let cell = UITableViewCell(style: .value1, reuseIdentifier: CustomCell.identifier)
@@ -38,6 +39,39 @@ class TableViewController: UITableViewController {
         let detailScreen = DetailScreen(object: posts[indexPath.row])
         let host = UIHostingController(rootView: detailScreen)
         navigationController?.pushViewController(host, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        func contextMenu() -> UIMenu {
+            let copy = UIAction(title: "Копировать адрес", image: UIImage(systemName: "doc.text", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)) { action in
+                
+            }
+            
+            let map = UIAction(title: "Перейти в Карты", image: UIImage(systemName: "map", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)) { action in
+                
+            }
+            return UIMenu(title: "", children: [map, copy])
+        }
+        let config = UIContextMenuConfiguration(
+            identifier: nil,
+            previewProvider: { () -> UIViewController? in
+                
+            let vc = PreviewHotelImage()
+                
+            let userinfo = UINib(nibName: PreviewHotelImage.identifier, bundle: Bundle(for: PreviewHotelImage.self)).instantiate(withOwner: nil, options: nil).first as! PreviewHotelImage
+
+                
+            let hotel = hotels[indexPath.row]
+            let name = hotel.name.replacingOccurrences(of: " ", with: "%20")
+            let url = "https://dummyimage.com/400/\(hotel.id)/ffffff&text=\(name)"
+            
+            userinfo.setImage(url)
+            
+            return userinfo
+        }) { _ -> UIMenu? in
+            return contextMenu()
+        }
+        return config
     }
 }
 

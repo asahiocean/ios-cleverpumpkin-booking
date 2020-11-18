@@ -1,6 +1,6 @@
 import Foundation
+import UIKit.UIImage
 
-// MARK: - Hotel
 @objcMembers public class Hotel: NSObject, Codable, Identifiable {
     public var id: Int
     var name: String
@@ -8,7 +8,9 @@ import Foundation
     var stars: Int
     var distance: Double
     var suitesAvailability: String
-
+    
+    var image: UIImage
+    
     enum CodingKeys: String, CodingKey {
         case id, name, address, stars, distance
         case suitesAvailability = "suites_availability"
@@ -21,6 +23,8 @@ import Foundation
         self.stars = stars ?? 0
         self.distance = distance ?? 0.0
         self.suitesAvailability = suitesAvailability ?? ""
+        
+        self.image = UIImage()
     }
         
     required public init(from decoder: Decoder) throws {
@@ -31,6 +35,7 @@ import Foundation
         stars = try values.decode(Int.self, forKey: .stars)
         distance = try values.decode(Double.self, forKey: .distance)
         suitesAvailability = try values.decode(String.self, forKey: .suitesAvailability)
+        image = UIImage()
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -42,5 +47,4 @@ import Foundation
         try container.encode(distance, forKey: .distance)
         try container.encode(suitesAvailability, forKey: .suitesAvailability)
     }
-
 }

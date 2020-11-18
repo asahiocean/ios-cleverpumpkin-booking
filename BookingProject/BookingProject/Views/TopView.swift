@@ -6,10 +6,11 @@ struct TopView : View {
     
     var body: some View {
         HStack(spacing: 8.0) {
-//            Image(hotel.image)
-//                .resizable()
-//                .frame(width: 70, height: 70)
-//                .clipShape(Circle())
+            
+            Image(uiImage: hotel.image)
+                .resizable()
+                .frame(width: 70, height: 70)
+                .clipShape(Circle())
             VStack(alignment: .leading, spacing: 4.0) {
                 Text(hotel.address)
                     .font(.title)
