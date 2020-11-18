@@ -6,12 +6,12 @@ public var estimatedRowHeight: CGFloat = UIScreen.main.bounds.height/10
 
 class TableViewController: UITableViewController {
     
-    private var posts: [Hotel]!
+    private var hotels: [Hotel]!
     var interactionMap: UIContextMenuInteraction!
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        posts = Handler.getdb()
+        hotels = Handler.getdb()
         tableView.register(CustomCell.nib, forCellReuseIdentifier: CustomCell.identifier)
         setup()
     }
@@ -21,12 +21,12 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return hotels.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = (tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell) {
-            cell.hotel(posts[indexPath.row])
+            cell.hotel(hotels[indexPath.row])
             return cell
         } else {
             let cell = UITableViewCell(style: .value1, reuseIdentifier: CustomCell.identifier)
@@ -36,7 +36,7 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailScreen = DetailScreen(object: posts[indexPath.row])
+        let detailScreen = DetailScreen(object: hotels[indexPath.row])
         let host = UIHostingController(rootView: detailScreen)
         navigationController?.pushViewController(host, animated: true)
     }
@@ -58,7 +58,7 @@ class TableViewController: UITableViewController {
             
             let vc = UINib(nibName: PreviewHotelImage.identifier, bundle: Bundle(for: PreviewHotelImage.self)).instantiate(withOwner: nil, options: nil).first as? PreviewHotelImage
                 
-            let hotel = hotels[indexPath.row]
+            let hotel = self.hotels[indexPath.row]
             let name = hotel.name.replacingOccurrences(of: " ", with: "%20")
             let url = "https://dummyimage.com/400/\(hotel.id)/ffffff&text=\(name)"
             

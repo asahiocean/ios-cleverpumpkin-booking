@@ -1,10 +1,3 @@
-//
-//  Cell.swift
-//  BookingProject
-//
-//  Created by Sergey Fedotov on 17.11.2020.
-//
-
 import SwiftUI
 
 struct Cell : View {
