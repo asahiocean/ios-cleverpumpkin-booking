@@ -23,8 +23,7 @@ class PreviewHotelImage: UIViewController {
             imageView.layer.borderWidth = 3
             imageView.layer.borderColor = UIColor.black.cgColor
             
-            let blur = UIBlurEffect(style: UIBlurEffect.Style.dark)
-            let blurView = UIVisualEffectView(effect: blur)
+            let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
             blurView.frame = view.bounds
             blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             blurView.backgroundColor = UIColor(patternImage: image)
