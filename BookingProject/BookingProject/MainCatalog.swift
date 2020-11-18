@@ -7,15 +7,22 @@
 
 import SwiftUI
 
+let hotels: [Hotel] = Handler.getdb()
+
+@available(iOS 14.0, *)
 struct MainCatalog: View {
     
-    var object: [Hotel] = []
-    
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            List(hotels) { hotel in
+                Cell(hotel: hotel)
+            }
+            .navigationTitle("Catalog")
+        }
     }
 }
 
+@available(iOS 14.0, *)
 struct MainCatalog_Previews: PreviewProvider {
     static var previews: some View {
         MainCatalog()

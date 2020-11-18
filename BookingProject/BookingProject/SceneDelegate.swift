@@ -5,6 +5,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        if let windowScene = scene as? UIWindowScene {
+            self.window = UIWindow(windowScene: windowScene)
+            if let window = window {
+                
+                class NavigationController: UINavigationController {
+                    override func viewDidLoad() {
+                        super.viewDidLoad()
+                        let tvc = TableViewController()
+                        self.viewControllers = [tvc]
+                    }
+                }
+
+                window.rootViewController = NavigationController()
+                window.makeKeyAndVisible()
+            }
+        }
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

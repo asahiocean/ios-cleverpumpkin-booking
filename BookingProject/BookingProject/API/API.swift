@@ -1,25 +1,12 @@
 import Foundation
 
 class API {
-    static func get(_ url: String, _ completion: @escaping (Data?,URLResponse?,Error?) -> Void) {
-        guard let _url = URL(string: url) else { return }
-        let quene = DispatchQueue(label: "com.API.get", qos: .background)
-        quene.async {
-            URLSession.shared.dataTask(with: URLRequest(url: _url)) { (data,resp,error) in
-                if let data = data, let status = (resp as? HTTPURLResponse)?.statusCode {
-                    switch status {
-                    case (200...299):
-                        DispatchQueue.main.async {
-                            completion(data,resp,error)
-                        }
-                    case 299...: // == error
-                        completion(nil,nil,nil)
-                    default: break
-                    }
-                } else { // NO INTERNET
-                    completion(nil,nil,nil)
-                }
-            }.resume()
+    static func get(_ url: String) -> Data {
+        do {
+            guard let url = URL(string: url) else { fatalError("CRASH URL") }
+            return try Data(contentsOf: url)
+        } catch {
+            fatalError(error.localizedDescription)
         }
     }
     

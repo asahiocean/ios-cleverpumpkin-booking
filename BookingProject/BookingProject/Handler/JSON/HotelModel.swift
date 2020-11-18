@@ -1,13 +1,13 @@
 import Foundation
 
 // MARK: - Hotel
-@objcMembers public class Hotel: NSObject, Codable {
-    var id: Int?
-    var name: String?
-    var address: String?
-    var stars: Int?
-    var distance: Double?
-    var suitesAvailability: String?
+@objcMembers public class Hotel: NSObject, Codable, Identifiable {
+    public var id: Int
+    var name: String
+    var address: String
+    var stars: Int
+    var distance: Double
+    var suitesAvailability: String
 
     enum CodingKeys: String, CodingKey {
         case id, name, address, stars, distance
@@ -15,12 +15,12 @@ import Foundation
     }
 
     init(id: Int?, name: String?, address: String?, stars: Int?, distance: Double?, suitesAvailability: String?) {
-        self.id = id
-        self.name = name
-        self.address = address
-        self.stars = stars
-        self.distance = distance
-        self.suitesAvailability = suitesAvailability
+        self.id = id ?? 0
+        self.name = name ?? ""
+        self.address = address ?? ""
+        self.stars = stars ?? 0
+        self.distance = distance ?? 0.0
+        self.suitesAvailability = suitesAvailability ?? ""
     }
         
     required public init(from decoder: Decoder) throws {
