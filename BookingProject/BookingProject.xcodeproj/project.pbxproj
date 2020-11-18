@@ -7,15 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D9063812564372800D7A81F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9063802564372800D7A81F /* TableViewController.swift */; };
+		3D9063822564372800D7A81F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9063802564372800D7A81F /* TableViewController.swift */; };
+		3D9063832564372800D7A81F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9063802564372800D7A81F /* TableViewController.swift */; };
+		3D90639E256438B700D7A81F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90639D256438B700D7A81F /* CustomCell.swift */; };
+		3D90639F256438B700D7A81F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90639D256438B700D7A81F /* CustomCell.swift */; };
+		3D9063A0256438B700D7A81F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90639D256438B700D7A81F /* CustomCell.swift */; };
+		3D9063B525643CE100D7A81F /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9063B425643CE100D7A81F /* DetailScreen.swift */; };
+		3D9063C225644F8800D7A81F /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9063A725643AD400D7A81F /* CustomCell.xib */; };
+		3D9063C625644F8800D7A81F /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9063A725643AD400D7A81F /* CustomCell.xib */; };
+		3D9063CD25644F8900D7A81F /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9063A725643AD400D7A81F /* CustomCell.xib */; };
 		3D93A5C5256301B50066616E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A5C4256301B50066616E /* AppDelegate.swift */; };
 		3D93A5C7256301B50066616E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A5C6256301B50066616E /* SceneDelegate.swift */; };
-		3D93A5C9256301B50066616E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A5C8256301B50066616E /* ViewController.swift */; };
-		3D93A5CC256301B50066616E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D93A5CA256301B50066616E /* Main.storyboard */; };
 		3D93A5CF256301B50066616E /* BookingProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A5CD256301B50066616E /* BookingProject.xcdatamodeld */; };
 		3D93A5D1256301B60066616E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D93A5D0256301B50066616E /* Assets.xcassets */; };
 		3D93A5D4256301B60066616E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D93A5D2256301B60066616E /* LaunchScreen.storyboard */; };
 		3D93A5DF256301B60066616E /* BookingProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A5DE256301B60066616E /* BookingProjectTests.swift */; };
 		3D93A5EA256301B60066616E /* BookingProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A5E9256301B60066616E /* BookingProjectUITests.swift */; };
+		3D93A60F25631BAC0066616E /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A60E25631BAC0066616E /* HotelModel.swift */; };
+		3D93A61925632E6F0066616E /* MainCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A61825632E6F0066616E /* MainCatalog.swift */; };
+		3D93A61F256330C00066616E /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A61E256330C00066616E /* URLs.swift */; };
+		3D93A627256330DB0066616E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A626256330DB0066616E /* API.swift */; };
+		3D93A62C2563313F0066616E /* JSONDecoderEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A62B2563313F0066616E /* JSONDecoderEncoder.swift */; };
+		3D93A632256331650066616E /* extensionCodableTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A631256331650066616E /* extensionCodableTask.swift */; };
+		3D93A63B256331960066616E /* CodableTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A63A256331960066616E /* CodableTask.swift */; };
+		3D93A64E2563C4C70066616E /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A64D2563C4C70066616E /* Handler.swift */; };
+		3D93A6692563C8030066616E /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A6682563C8030066616E /* Cell.swift */; };
+		3D93A6712563C8920066616E /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A6702563C8920066616E /* TopView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +54,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D9063802564372800D7A81F /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		3D90639D256438B700D7A81F /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		3D9063A725643AD400D7A81F /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		3D9063B425643CE100D7A81F /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
 		3D93A5C1256301B50066616E /* BookingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D93A5C4256301B50066616E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D93A5C6256301B50066616E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3D93A5C8256301B50066616E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3D93A5CB256301B50066616E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D93A5CE256301B50066616E /* BookingProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookingProject.xcdatamodel; sourceTree = "<group>"; };
 		3D93A5D0256301B50066616E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D93A5D3256301B60066616E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +71,16 @@
 		3D93A5E5256301B60066616E /* BookingProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookingProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D93A5E9256301B60066616E /* BookingProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingProjectUITests.swift; sourceTree = "<group>"; };
 		3D93A5EB256301B60066616E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D93A60E25631BAC0066616E /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
+		3D93A61825632E6F0066616E /* MainCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCatalog.swift; sourceTree = "<group>"; };
+		3D93A61E256330C00066616E /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		3D93A626256330DB0066616E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		3D93A62B2563313F0066616E /* JSONDecoderEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderEncoder.swift; sourceTree = "<group>"; };
+		3D93A631256331650066616E /* extensionCodableTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionCodableTask.swift; sourceTree = "<group>"; };
+		3D93A63A256331960066616E /* CodableTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTask.swift; sourceTree = "<group>"; };
+		3D93A64D2563C4C70066616E /* Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
+		3D93A6682563C8030066616E /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		3D93A6702563C8920066616E /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +108,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D9063872564377E00D7A81F /* TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D90639C2564384800D7A81F /* Cell */,
+				3D9063802564372800D7A81F /* TableViewController.swift */,
+			);
+			path = TableViewController;
+			sourceTree = "<group>";
+		};
+		3D90639C2564384800D7A81F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3D90639D256438B700D7A81F /* CustomCell.swift */,
+				3D9063A725643AD400D7A81F /* CustomCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3D93A5B8256301B50066616E = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +149,17 @@
 		3D93A5C3256301B50066616E /* BookingProject */ = {
 			isa = PBXGroup;
 			children = (
+				3DFE4A8B256526540042F079 /* Storyboards */,
+				3D9063872564377E00D7A81F /* TableViewController */,
+				3D93A6672563C7F70066616E /* Views */,
+				3D93A64C2563C4BF0066616E /* Handler */,
+				3D93A61D256330B00066616E /* API */,
 				3D93A5C4256301B50066616E /* AppDelegate.swift */,
 				3D93A5C6256301B50066616E /* SceneDelegate.swift */,
-				3D93A5C8256301B50066616E /* ViewController.swift */,
-				3D93A5CA256301B50066616E /* Main.storyboard */,
 				3D93A5D0256301B50066616E /* Assets.xcassets */,
-				3D93A5D2256301B60066616E /* LaunchScreen.storyboard */,
 				3D93A5D5256301B60066616E /* Info.plist */,
 				3D93A5CD256301B50066616E /* BookingProject.xcdatamodeld */,
+				3D93A61825632E6F0066616E /* MainCatalog.swift */,
 			);
 			path = BookingProject;
 			sourceTree = "<group>";
@@ -129,6 +180,69 @@
 				3D93A5EB256301B60066616E /* Info.plist */,
 			);
 			path = BookingProjectUITests;
+			sourceTree = "<group>";
+		};
+		3D93A60D25631B990066616E /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				3D93A60E25631BAC0066616E /* HotelModel.swift */,
+				3D93A62B2563313F0066616E /* JSONDecoderEncoder.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		3D93A61D256330B00066616E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3D93A626256330DB0066616E /* API.swift */,
+				3D93A61E256330C00066616E /* URLs.swift */,
+				3D93A639256331860066616E /* Protocols */,
+				3D93A630256331570066616E /* URLSession */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		3D93A630256331570066616E /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				3D93A631256331650066616E /* extensionCodableTask.swift */,
+			);
+			path = URLSession;
+			sourceTree = "<group>";
+		};
+		3D93A639256331860066616E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3D93A63A256331960066616E /* CodableTask.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3D93A64C2563C4BF0066616E /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				3D93A64D2563C4C70066616E /* Handler.swift */,
+				3D93A60D25631B990066616E /* JSON */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
+		3D93A6672563C7F70066616E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3D93A6682563C8030066616E /* Cell.swift */,
+				3D93A6702563C8920066616E /* TopView.swift */,
+				3D9063B425643CE100D7A81F /* DetailScreen.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3DFE4A8B256526540042F079 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3D93A5D2256301B60066616E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +350,7 @@
 			files = (
 				3D93A5D4256301B60066616E /* LaunchScreen.storyboard in Resources */,
 				3D93A5D1256301B60066616E /* Assets.xcassets in Resources */,
-				3D93A5CC256301B50066616E /* Main.storyboard in Resources */,
+				3D9063C225644F8800D7A81F /* CustomCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9063C625644F8800D7A81F /* CustomCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9063CD25644F8900D7A81F /* CustomCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,9 +377,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D93A5C9256301B50066616E /* ViewController.swift in Sources */,
+				3D93A6712563C8920066616E /* TopView.swift in Sources */,
+				3D93A62C2563313F0066616E /* JSONDecoderEncoder.swift in Sources */,
+				3D93A60F25631BAC0066616E /* HotelModel.swift in Sources */,
 				3D93A5C5256301B50066616E /* AppDelegate.swift in Sources */,
+				3D93A63B256331960066616E /* CodableTask.swift in Sources */,
+				3D93A6692563C8030066616E /* Cell.swift in Sources */,
+				3D90639E256438B700D7A81F /* CustomCell.swift in Sources */,
+				3D93A61F256330C00066616E /* URLs.swift in Sources */,
+				3D93A64E2563C4C70066616E /* Handler.swift in Sources */,
+				3D93A632256331650066616E /* extensionCodableTask.swift in Sources */,
 				3D93A5C7256301B50066616E /* SceneDelegate.swift in Sources */,
+				3D93A61925632E6F0066616E /* MainCatalog.swift in Sources */,
+				3D93A627256330DB0066616E /* API.swift in Sources */,
+				3D9063812564372800D7A81F /* TableViewController.swift in Sources */,
+				3D9063B525643CE100D7A81F /* DetailScreen.swift in Sources */,
 				3D93A5CF256301B50066616E /* BookingProject.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +401,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D93A5DF256301B60066616E /* BookingProjectTests.swift in Sources */,
+				3D90639F256438B700D7A81F /* CustomCell.swift in Sources */,
+				3D9063822564372800D7A81F /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +411,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D93A5EA256301B60066616E /* BookingProjectUITests.swift in Sources */,
+				3D9063A0256438B700D7A81F /* CustomCell.swift in Sources */,
+				3D9063832564372800D7A81F /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,14 +432,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3D93A5CA256301B50066616E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D93A5CB256301B50066616E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3D93A5D2256301B60066616E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -443,7 +567,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KXDT64LHVB;
 				INFOPLIST_FILE = BookingProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -463,7 +587,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KXDT64LHVB;
 				INFOPLIST_FILE = BookingProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
