@@ -88,3 +88,66 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+BookingProject/BookingProject.xcodeproj/project.pbxproj
+BookingProject/BookingProject.xcworkspace/contents.xcworkspacedata
+BookingProject/Podfile.lock
+BookingProject/Pods/Manifest.lock
+BookingProject/Pods/Nuke/LICENSE
+BookingProject/Pods/Nuke/README.md
+BookingProject/Pods/Nuke/Sources/DataCache.swift
+BookingProject/Pods/Nuke/Sources/DataLoader.swift
+BookingProject/Pods/Nuke/Sources/Deprecated.swift
+BookingProject/Pods/Nuke/Sources/ImageCache.swift
+BookingProject/Pods/Nuke/Sources/ImageDecoding.swift
+BookingProject/Pods/Nuke/Sources/ImageEncoding.swift
+BookingProject/Pods/Nuke/Sources/ImagePipeline.swift
+BookingProject/Pods/Nuke/Sources/ImagePipelineConfiguration.swift
+BookingProject/Pods/Nuke/Sources/ImagePreheater.swift
+BookingProject/Pods/Nuke/Sources/ImageProcessing.swift
+BookingProject/Pods/Nuke/Sources/ImageRequest.swift
+BookingProject/Pods/Nuke/Sources/ImageTask.swift
+BookingProject/Pods/Nuke/Sources/ImageViewExtensions.swift
+BookingProject/Pods/Nuke/Sources/Internal.swift
+BookingProject/Pods/Nuke/Sources/Task.swift
+BookingProject/Pods/Pods.xcodeproj/project.pbxproj
+BookingProject/Pods/Target Support Files/Nuke/Nuke-dummy.m
+BookingProject/Pods/Target Support Files/Nuke/Nuke-Info.plist
+BookingProject/Pods/Target Support Files/Nuke/Nuke-prefix.pch
+BookingProject/Pods/Target Support Files/Nuke/Nuke-umbrella.h
+BookingProject/Pods/Target Support Files/Nuke/Nuke.debug.xcconfig
+BookingProject/Pods/Target Support Files/Nuke/Nuke.modulemap
+BookingProject/Pods/Target Support Files/Nuke/Nuke.release.xcconfig
+BookingProject/Pods/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests-acknowledgements.markdown
+BookingProject/Pods/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests-acknowledgements.plist
+BookingProject/Pods/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests-dummy.m
+BookingProject/Pods/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests-frameworks-Debug-input-files.xcfilelist
+BookingProject/Pods/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests-frameworks-Debug-output-files.xcfilelist
+BookingProject/Pods/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests-frameworks-Release-input-files.xcfilelist
+BookingProject/Pods/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests-frameworks-Release-output-files.xcfilelist
+BookingProject/Pods/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests-frameworks.sh
+BookingProject/Pods/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests-Info.plist
+BookingProject/Pods/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests-umbrella.h
+BookingProject/Pods/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests.debug.xcconfig
+BookingProject/Pods/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests.modulemap
+BookingProject/Pods/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests.release.xcconfig
+BookingProject/Pods/Target Support Files/Pods-BookingProject/Pods-BookingProject-acknowledgements.markdown
+BookingProject/Pods/Target Support Files/Pods-BookingProject/Pods-BookingProject-acknowledgements.plist
+BookingProject/Pods/Target Support Files/Pods-BookingProject/Pods-BookingProject-dummy.m
+BookingProject/Pods/Target Support Files/Pods-BookingProject/Pods-BookingProject-frameworks-Debug-input-files.xcfilelist
+BookingProject/Pods/Target Support Files/Pods-BookingProject/Pods-BookingProject-frameworks-Debug-output-files.xcfilelist
+BookingProject/Pods/Target Support Files/Pods-BookingProject/Pods-BookingProject-frameworks-Release-input-files.xcfilelist
+BookingProject/Pods/Target Support Files/Pods-BookingProject/Pods-BookingProject-frameworks-Release-output-files.xcfilelist
+BookingProject/Pods/Target Support Files/Pods-BookingProject/Pods-BookingProject-frameworks.sh
+BookingProject/Pods/Target Support Files/Pods-BookingProject/Pods-BookingProject-Info.plist
+BookingProject/Pods/Target Support Files/Pods-BookingProject/Pods-BookingProject-umbrella.h
+BookingProject/Pods/Target Support Files/Pods-BookingProject/Pods-BookingProject.debug.xcconfig
+BookingProject/Pods/Target Support Files/Pods-BookingProject/Pods-BookingProject.modulemap
+BookingProject/Pods/Target Support Files/Pods-BookingProject/Pods-BookingProject.release.xcconfig
+BookingProject/Pods/Target Support Files/Pods-BookingProjectTests/Pods-BookingProjectTests-acknowledgements.markdown
+BookingProject/Pods/Target Support Files/Pods-BookingProjectTests/Pods-BookingProjectTests-acknowledgements.plist
+BookingProject/Pods/Target Support Files/Pods-BookingProjectTests/Pods-BookingProjectTests-dummy.m
+BookingProject/Pods/Target Support Files/Pods-BookingProjectTests/Pods-BookingProjectTests-Info.plist
+BookingProject/Pods/Target Support Files/Pods-BookingProjectTests/Pods-BookingProjectTests-umbrella.h
+BookingProject/Pods/Target Support Files/Pods-BookingProjectTests/Pods-BookingProjectTests.debug.xcconfig
+BookingProject/Pods/Target Support Files/Pods-BookingProjectTests/Pods-BookingProjectTests.modulemap
+BookingProject/Pods/Target Support Files/Pods-BookingProjectTests/Pods-BookingProjectTests.release.xcconfig
