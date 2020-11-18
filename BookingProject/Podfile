@@ -1,0 +1,19 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'BookingProject' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for BookingProject
+
+  target 'BookingProjectTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'BookingProjectUITests' do
+    # Pods for testing
+  end
+
+end
