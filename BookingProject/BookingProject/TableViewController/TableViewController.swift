@@ -5,11 +5,12 @@ class TableViewController: UITableViewController {
     
     internal var hotels: [Hotel]?
     var interactionMap: UIContextMenuInteraction!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         let data = API.shared.getData(url: URLs.get)
         self.hotels = Handler.genericData(data)
+        
         tableView.register(CustomCell.nib, forCellReuseIdentifier: CustomCell.id)
         tableViewConfig()
     }
@@ -19,7 +20,7 @@ class TableViewController: UITableViewController {
         tableView.contentInset = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
         UIView.animate(withDuration: 0.15, animations: { NAVBar.sortButton.alpha = 1 })
     }
-    
+        
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIView.animate(withDuration: 0.15, animations: { NAVBar.sortButton.alpha = 0 })
@@ -33,7 +34,7 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = (tableView.dequeueReusableCell(withIdentifier: CustomCell.id, for: indexPath) as? CustomCell) else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.id, for: indexPath) as? CustomCell else { fatalError() }
         if let hotel = hotels?[indexPath.row] {
             cell.set(hotel: hotel)
         }

@@ -16,10 +16,11 @@ class CustomCell: UITableViewCell {
     }
             
     func set(hotel: Hotel) {
-        _ = imageview.subviews.map({$0.removeFromSuperview()})
-        imageview.image = hotel.image
         label.text = hotel.name
-        print("Cell image size:", String(describing: hotel.image.pngData()?.count))
+        
+        guard hotel.image.pngData() != nil else { return }
+        _ = imageview.subviews.map({ $0.removeFromSuperview() })
+        imageview.image = hotel.image
     }
 }
 extension CustomCell {
@@ -28,7 +29,10 @@ extension CustomCell {
         spinner.hidesWhenStopped = true
         spinner.autoresizingMask = [.flexibleWidth,.flexibleHeight]
         spinner.center = imageview.center
+        spinner.color = .systemRed
         spinner.startAnimating()
         imageview.addSubview(spinner)
     }
 }
+
+//         print("Cell image size:", String(describing: hotel.image.pngData()?.count))
