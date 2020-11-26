@@ -2,18 +2,21 @@ import SwiftUI
 
 struct Cell : View {
     
-    var hotel: Hotel
+    @State var hotel: Hotel
     
     var body: some View {
-        VStack(spacing: 16.0) {
-            TopView(hotel: hotel)
-        }.padding()
+        TopView(hotel: hotel)
     }
 }
 
+#if DEBUG
 struct Cell_Previews : PreviewProvider {
     static var previews: some View {
-        Cell(hotel: Handler.getdb()[0])
-            .previewLayout(.sizeThatFits)
+        let data = API.shared.getData(url: URLs.get)
+        if let hotels: [Hotel] = Handler.genericData(data) {
+            Cell(hotel: hotels[0])
+                .previewLayout(.sizeThatFits)
+        }
     }
 }
+#endif

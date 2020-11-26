@@ -3,35 +3,23 @@ import Nuke
 
 class CustomCell: UITableViewCell {
 
-    static var identifier: String { String(describing: self )}
-    static var nib: UINib { UINib(nibName: identifier, bundle: nil )}
+    static var id: String { String(describing: self )}
+    static var nib: UINib { UINib(nibName: id, bundle: nil )}
 
     @IBOutlet weak var imageview: UIImageView!
-    @IBOutlet weak var label: UILabel! {
-        didSet {
+    @IBOutlet weak var label: UILabel!
             
-        }
-    }
-    
-    var interactionMap: UIContextMenuInteraction!
-        
     override func awakeFromNib() {
         super.awakeFromNib()
         loadImageIndicator()
         imageview.layer.cornerRadius = 10
     }
-        
-    func hotel(_ hotel: Hotel) {
-        print(hotel.name)
-        
+            
+    func set(hotel: Hotel) {
+        _ = imageview.subviews.map({$0.removeFromSuperview()})
+        imageview.image = hotel.image
         label.text = hotel.name
-        
-        let _name = hotel.name.replacingOccurrences(of: " ", with: "%20")
-        let _url = "https://dummyimage.com/400/\(hotel.id)/ffffff&text=\(_name)"
-        API.loadImage(_url, { [self] image -> Void in
-            _ = imageview.subviews.map({$0.removeFromSuperview()})
-            imageview.image = image
-        })
+        print("Cell image size:", String(describing: hotel.image.pngData()?.count))
     }
 }
 extension CustomCell {
