@@ -1,7 +1,7 @@
 import Foundation
 import UIKit.UIImage
 
-@objcMembers public class Hotel: NSObject, Codable, Identifiable {
+public class Hotel: Codable, Identifiable, Hashable {
     public var id: Int
     var name: String
     var address: String
@@ -10,6 +10,15 @@ import UIKit.UIImage
     var suitesAvailability: String
     
     var image: UIImage
+    var availableRooms: Int
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    public static func == (lhs: Hotel, rhs: Hotel) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.address == rhs.address && lhs.stars == rhs.stars && lhs.distance == rhs.distance && lhs.suitesAvailability == rhs.suitesAvailability && lhs.image == rhs.image && lhs.availableRooms == rhs.availableRooms
+    }
     
     enum CodingKeys: String, CodingKey {
         case id, name, address, stars, distance
@@ -24,7 +33,8 @@ import UIKit.UIImage
         self.distance = distance ?? 0.0
         self.suitesAvailability = suitesAvailability ?? ""
         
-        self.image = UIImage()
+        self.image = .init()
+        self.availableRooms = suitesAvailability?.split(separator: ":").compactMap{Int($0)}.count ?? 0
     }
         
     required public init(from decoder: Decoder) throws {
@@ -35,7 +45,9 @@ import UIKit.UIImage
         stars = try values.decode(Int.self, forKey: .stars)
         distance = try values.decode(Double.self, forKey: .distance)
         suitesAvailability = try values.decode(String.self, forKey: .suitesAvailability)
-        image = UIImage()
+        
+        image = .init()
+        availableRooms = try values.decode(String.self, forKey: .suitesAvailability).split(separator: ":").compactMap{Int($0)}.count
     }
 
     public func encode(to encoder: Encoder) throws {

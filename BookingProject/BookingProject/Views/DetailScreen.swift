@@ -2,39 +2,34 @@ import SwiftUI
 
 struct DetailScreen : View {
     
-    var object: Hotel
+    @State internal var hotel: Hotel
     
     var body: some View {
-        VStack(spacing: 16.0) {
-            VStack(spacing: 20.0) {
-                MainImage(object: object)
-                Text(object.name)
+        VStack(alignment: .center, spacing: 10, content: {
+            Image(uiImage: hotel.image)
+                .resizable()
+                .padding()
+                .border(Color.gray, width: 3)
+                .aspectRatio(1.75, contentMode: .fit)
+            VStack(alignment: .leading, spacing: 0, content: {
+                Text("Описание").font(.title)
+                Text(hotel.address)
                     .lineLimit(nil)
-                    .font(.title)
-            }
-            VStack(alignment: .leading, spacing: 12.0) {
-                Text("Описание")
-                    .font(.title)
-                Text(object.address)
-                    .lineLimit(nil)
-            }
+            })
+            .ignoresSafeArea(.all)
             Spacer()
-            }.padding()
+        }).navigationBarTitle(hotel.name, displayMode: .large)
     }
 }
 
-struct MainImage: View {
-    
-    var object: Hotel
-    
-    var body: some View {
-        Image(uiImage: .actions)
-            .resizable()
-            .cornerRadius(30)
-            .frame(width: 170, height: 170)
-            .border(Color.gray, width: 3)
-            .shadow(radius: 10)
+#if DEBUG
+struct DetailScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        let data = API.shared.getData(url: URLs.get)
+        if let _hotel: Hotel = Handler.genericData(data)?[0] {
+            DetailScreen(hotel: _hotel)
+                .previewLayout(.device)
+        }
     }
 }
-
-
+#endif

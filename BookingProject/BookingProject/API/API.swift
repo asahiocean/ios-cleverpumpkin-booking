@@ -1,9 +1,12 @@
 import Foundation
 import Nuke
-import UIKit.UIImage
+import UIKit
 
-class API {
-    static func get(_ url: String) -> Data {
+final class API {
+    
+    static let shared = API()
+    
+    func getData(url: String) -> Data {
         do {
             guard let url = URL(string: url) else { fatalError("CRASH URL") }
             return try Data(contentsOf: url)
@@ -12,9 +15,7 @@ class API {
         }
     }
     
-    static func loadImage(_ urlSrt: String, _ completion: @escaping (UIImage?)->()) {
-        guard let url = URL(string: urlSrt) else { return }
-        
+    func loadImage(_ url: URL, _ completion: @escaping (UIImage)->()){
         let request = ImageRequest(url: url, priority: .high)
         if let cached = ImagePipeline.shared.cachedImage(for: request) {
             completion(cached.image);
@@ -23,9 +24,10 @@ class API {
                 switch response {
                 case let .success(result):
                     completion(result.image);
-                case let .failure(error):
-                    print(error.localizedDescription)
-                    completion(nil)
+                case let .failure(error): // see breakpoint
+                    if let image = UIImage(named: "imagecomingsoon") {
+                        completion(image)
+                    }
                 }
             })
         }

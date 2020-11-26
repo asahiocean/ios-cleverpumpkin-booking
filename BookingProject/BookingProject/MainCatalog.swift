@@ -1,10 +1,11 @@
 import SwiftUI
 
-let hotels: [Hotel] = Handler.getdb()
-
 struct MainCatalog: View {
+
+    @State fileprivate var hotels: [Hotel]!
     
     var body: some View {
+        
         NavigationView {
             List(hotels) { hotel in
                 Cell(hotel: hotel)
