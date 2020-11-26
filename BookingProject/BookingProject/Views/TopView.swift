@@ -11,6 +11,7 @@ struct TopView : View {
                 .frame(width: 100, height: 100)
                 .aspectRatio(1, contentMode: .fit)
                 .background(Color(#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)))
+                .padding(5)
             VStack(alignment: .leading, spacing: 10) {
                 Text(hotel.address)
                     .font(.title)
