@@ -24,6 +24,5 @@ final class API {
         }
         return UIImage(named: "imagecomingsoon")!
     }
-    
     private init() { }
 }

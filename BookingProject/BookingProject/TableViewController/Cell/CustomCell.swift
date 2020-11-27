@@ -34,5 +34,3 @@ extension CustomCell {
         imageview.addSubview(spinner)
     }
 }
-
-//         print("Cell image size:", String(describing: hotel.image.pngData()?.count))
