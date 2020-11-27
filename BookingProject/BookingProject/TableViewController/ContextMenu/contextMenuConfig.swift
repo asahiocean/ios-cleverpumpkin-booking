@@ -1,5 +1,5 @@
 import Foundation
-import UIKit.UITableView
+import UIKit
 
 extension TableViewController {
     override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
