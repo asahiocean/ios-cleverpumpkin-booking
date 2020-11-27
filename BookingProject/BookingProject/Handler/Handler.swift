@@ -1,3 +1,4 @@
+import Foundation
 import UIKit
 
 protocol Json {
@@ -9,12 +10,10 @@ final class Handler: Json {
         do {
             let raw = try newJSONDecoder().decode([T].self, from: data)
             guard let hotels = raw as? [Hotel] else { fatalError("NOT HOTELS") }
+            
             for i in hotels.indices {
-                if let url: URL = URL(string: "https://github.com/iMofas/ios-android-test/raw/master/\(i+1).jpg") {
-                    API.shared.loadImage(url, { image in
-                        hotels[i].image = image
-                    })
-                }
+                guard let url = URL(string: "https://github.com/iMofas/ios-android-test/raw/master/\(i+1).jpg") else { fatalError() }
+                hotels[i].image = API.shared.loadImage(url)
             }
             return hotels as? [T]
         } catch {
