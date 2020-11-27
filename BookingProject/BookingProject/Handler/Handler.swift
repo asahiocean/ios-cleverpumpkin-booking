@@ -1,4 +1,5 @@
 import Foundation
+
 import UIKit
 
 protocol Json {
@@ -22,4 +23,23 @@ final class Handler: Json {
         }
     }
     private init() { }
+}
+
+final class Storage {
+    public static var shared = Storage()
+    internal(set) public var hotels: [Hotel]?
+    
+    let quene = DispatchQueue(label: "com.storage.setdb")
+    let group = DispatchGroup()
+
+    func set(hotels: [Hotel]) {
+        group.enter()
+        quene.async(group: group, execute: { [self] in
+            self.hotels = hotels
+        })
+        group.notify(queue: .main, execute: {
+            print("group.notify")
+            updaterGroup.leave()
+        })
+    }
 }

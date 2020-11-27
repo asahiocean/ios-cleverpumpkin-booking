@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="Drd-gZ-L9P" customClass="PreviewHotelImage" customModule="BookingProject" customModuleProvider="target">
+        <viewController id="Drd-gZ-L9P" customClass="PreviewHotel" customModule="BookingProject" customModuleProvider="target">
             <view key="view" contentMode="scaleToFill" id="3WB-2h-wsv">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
