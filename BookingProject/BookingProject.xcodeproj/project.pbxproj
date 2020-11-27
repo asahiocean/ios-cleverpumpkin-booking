@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,7 @@
 		3D93A6712563C8920066616E /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A6702563C8920066616E /* TopView.swift */; };
 		3D97D5402571277B00DFF4BE /* tableViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D53F2571277B00DFF4BE /* tableViewConfig.swift */; };
 		3D97D548257127FE00DFF4BE /* navigationBarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D547257127FE00DFF4BE /* navigationBarConfig.swift */; };
+		3D97D58A257151B800DFF4BE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D589257151B800DFF4BE /* Storage.swift */; };
 		3DFE4AA8256591220042F079 /* PreviewHotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AA7256591220042F079 /* PreviewHotel.swift */; };
 		3DFE4AAE2565914F0042F079 /* PreviewHotel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DFE4AAD2565914F0042F079 /* PreviewHotel.xib */; };
 		7962BC5EB7E495F31FDEAC35 /* Pods_BookingProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1E3EA9B3B5C5BAC80CFC2F /* Pods_BookingProjectTests.framework */; };
@@ -97,6 +98,7 @@
 		3D93A6702563C8920066616E /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		3D97D53F2571277B00DFF4BE /* tableViewConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewConfig.swift; sourceTree = "<group>"; };
 		3D97D547257127FE00DFF4BE /* navigationBarConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationBarConfig.swift; sourceTree = "<group>"; };
+		3D97D589257151B800DFF4BE /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		3DFE4AA7256591220042F079 /* PreviewHotel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHotel.swift; sourceTree = "<group>"; };
 		3DFE4AAD2565914F0042F079 /* PreviewHotel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewHotel.xib; sourceTree = "<group>"; };
 		54C9605F3677159BDA85DD8B /* Pods-BookingProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookingProject.debug.xcconfig"; path = "Target Support Files/Pods-BookingProject/Pods-BookingProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 		3D93A5C3256301B50066616E /* BookingProject */ = {
 			isa = PBXGroup;
 			children = (
+				3D97D588257151A700DFF4BE /* Storage */,
 				3D728A1125694F170001EF28 /* Helper */,
 				3DFE4AA6256591080042F079 /* PreviewHotelImage */,
 				3DFE4A8B256526540042F079 /* Storyboards */,
@@ -316,6 +319,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3D97D588257151A700DFF4BE /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				3D97D589257151B800DFF4BE /* Storage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		3DFE4A8B256526540042F079 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +368,7 @@
 				3D93A5BD256301B50066616E /* Sources */,
 				3D93A5BE256301B50066616E /* Frameworks */,
 				3D93A5BF256301B50066616E /* Resources */,
+				ADF3370BBECE7DCE37E693A4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -394,6 +406,7 @@
 				3D93A5E1256301B60066616E /* Sources */,
 				3D93A5E2256301B60066616E /* Frameworks */,
 				3D93A5E3256301B60066616E /* Resources */,
+				FED67DAE95FE0AD0DE1A5DA8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -522,6 +535,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ADF3370BBECE7DCE37E693A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BookingProject/Pods-BookingProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BookingProject/Pods-BookingProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BookingProject/Pods-BookingProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BD5C1596F473DF80C44E7766 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -542,6 +572,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FED67DAE95FE0AD0DE1A5DA8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BookingProject-BookingProjectUITests/Pods-BookingProject-BookingProjectUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -566,6 +613,7 @@
 				3D728A0D25694EB20001EF28 /* NAVBar.swift in Sources */,
 				3D93A632256331650066616E /* extensionCodableTask.swift in Sources */,
 				3D93A5C7256301B50066616E /* SceneDelegate.swift in Sources */,
+				3D97D58A257151B800DFF4BE /* Storage.swift in Sources */,
 				3DFE4AA8256591220042F079 /* PreviewHotel.swift in Sources */,
 				3D93A61925632E6F0066616E /* MainCatalog.swift in Sources */,
 				3D728A1425694F270001EF28 /* largeTitleHeight.swift in Sources */,

@@ -15,10 +15,10 @@ class TableViewController: UITableViewController {
         tableView.register(CustomCell.nib, forCellReuseIdentifier: CustomCell.id)
         tableViewConfig()
         
+        let data = API.shared.getData(url: URLs.get)
         updaterGroup.enter()
         updaterQueue.async(group: updaterGroup, execute: { [self] in
-            let data = API.shared.getData(url: URLs.get)
-            storage.set(hotels: Handler.genericData(data)!)
+            storage.set(data: data)
         })
         updaterGroup.notify(queue: .main, execute: { [self] in
             print("updaterGroup.notify")
@@ -32,7 +32,7 @@ class TableViewController: UITableViewController {
         tableView.contentInset = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
         UIView.animate(withDuration: 0.15, animations: { NAVBar.sortButton.alpha = 1 })
     }
-        
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIView.animate(withDuration: 0.15, animations: { NAVBar.sortButton.alpha = 0 })

@@ -6,6 +6,7 @@ target 'BookingProject' do
   use_frameworks!
 
   # Pods for BookingProject
+  pod 'Nuke'
 
   target 'BookingProjectTests' do
     inherit! :search_paths

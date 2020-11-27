@@ -1,5 +1,4 @@
 import Foundation
-
 import UIKit
 
 protocol Json {
@@ -15,7 +14,11 @@ final class Handler: Json {
             
             for i in hotels.indices {
                 guard let url = URL(string: "https://github.com/iMofas/ios-android-test/raw/master/\(i+1).jpg") else { fatalError() }
-                hotels[i].image = API.shared.loadImage(url)
+                if let imagedata = API.shared.loadImageData(url) {
+                    hotels[i].image = UIImage(data: imagedata)!
+                } else {
+                    hotels[i].image = UIImage(named: "imagecomingsoon")!
+                }
             }
             return hotels as? [T]
         } catch {
@@ -23,23 +26,4 @@ final class Handler: Json {
         }
     }
     private init() { }
-}
-
-final class Storage {
-    public static var shared = Storage()
-    internal(set) public var hotels: [Hotel]?
-    
-    let quene = DispatchQueue(label: "com.storage.setdb")
-    let group = DispatchGroup()
-
-    func set(hotels: [Hotel]) {
-        group.enter()
-        quene.async(group: group, execute: { [self] in
-            self.hotels = hotels
-        })
-        group.notify(queue: .main, execute: {
-            print("group.notify")
-            updaterGroup.leave()
-        })
-    }
 }
