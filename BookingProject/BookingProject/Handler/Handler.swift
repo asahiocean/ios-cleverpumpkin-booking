@@ -9,6 +9,7 @@ final class Handler: Json {
     static func genericData<T: Codable>(_ data: Data) -> [T]? {
         do {
             let raw = try newJSONDecoder().decode([T].self, from: data)
+            
             guard let hotels = raw as? [Hotel] else { fatalError("NOT HOTELS") }
             
             for i in hotels.indices {
