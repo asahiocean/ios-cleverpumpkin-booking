@@ -9,22 +9,13 @@ class TableViewController: UITableViewController {
     
     var interactionMap: UIContextMenuInteraction!
     let storage = Storage.shared
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        delayScreen()
+        updaterHotels()
         tableView.register(CustomCell.nib, forCellReuseIdentifier: CustomCell.id)
         tableViewConfig()
-        
-        let data = API.shared.getData(url: URLs.get)
-        updaterGroup.enter()
-        updaterQueue.async(group: updaterGroup, execute: { [self] in
-            storage.set(data: data)
-        })
-        updaterGroup.notify(queue: .main, execute: { [self] in
-            print("updaterGroup.notify")
-            tableView.reloadData()
-
-        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,9 +38,7 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.id, for: indexPath) as? CustomCell else { fatalError() }
-        if let hotel = storage.hotels?[indexPath.row] {
-            cell.set(hotel: hotel)
-        }
+        if let hotel = storage.hotels?[indexPath.row] { cell.setHotel(hotel) }
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -61,4 +50,3 @@ class TableViewController: UITableViewController {
         }
     }
 }
-

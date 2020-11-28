@@ -17,15 +17,22 @@ final class API {
     }
     
     func loadImageData(_ url: URL) -> Data? {
+        
+        let data: Data
+        
         if let nsdata = storage.cache.object(forKey: url as NSURL) {
-            let data = Data(referencing: nsdata)
+            data = Data(referencing: nsdata)
             return data
-        } else if let data = try? Data(contentsOf: url, options: .uncached) {
-            let nsdata = NSData(data: data)
-            storage.cache.setObject(nsdata, forKey: url as NSURL)
-            return data
+        } else {
+            do {
+                data = try Data(contentsOf: url, options: [.dataReadingMapped, .uncached])
+                let nsdata = NSData(data: data)
+                storage.cache.setObject(nsdata, forKey: url as NSURL)
+                return data
+            } catch {
+                return nil
+            }
         }
-        return nil
     }
     private init() { }
 }

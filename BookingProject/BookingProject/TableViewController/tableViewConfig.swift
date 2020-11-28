@@ -9,5 +9,10 @@ extension TableViewController {
         tableView.estimatedRowHeight = UIScreen.main.bounds.height/10
         tableView.decelerationRate = .fast
         navigationBarConfig()
+        
+        let spinner = UIActivityIndicatorView(style: .large)
+        tableView.backgroundView = spinner
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
     }
 }
