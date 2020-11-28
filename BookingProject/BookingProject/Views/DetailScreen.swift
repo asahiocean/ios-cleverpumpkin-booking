@@ -6,7 +6,7 @@ struct DetailScreen : View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 10, content: {
-            Image(uiImage: hotel.image)
+            Image(uiImage: UIImage(data: hotel.imagedata)!)
                 .resizable()
                 .padding()
                 .border(Color.gray, width: 3)

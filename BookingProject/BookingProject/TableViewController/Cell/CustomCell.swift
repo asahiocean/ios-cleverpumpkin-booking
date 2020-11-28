@@ -15,19 +15,18 @@ class CustomCell: UITableViewCell {
         imageview.layer.cornerRadius = 10
     }
             
-    func set(hotel: Hotel) {
+    func setHotel(_ hotel: Hotel) {
         label.text = hotel.name
         
-        guard hotel.image.pngData() != nil else { return }
-        _ = imageview.subviews.map({ $0.removeFromSuperview() })
-        imageview.image = hotel.image
+        imageview.image = UIImage(data: hotel.imagedata)
+        _ = imageview.subviews.map({$0.removeFromSuperview()})
     }
 }
 extension CustomCell {
     internal func loadImageIndicator() {
         let spinner = UIActivityIndicatorView(style: .medium)
         spinner.hidesWhenStopped = true
-        spinner.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+        spinner.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         spinner.center = imageview.center
         spinner.color = .systemRed
         spinner.startAnimating()

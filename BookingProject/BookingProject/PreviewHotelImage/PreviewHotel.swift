@@ -1,9 +1,9 @@
 import UIKit
 
-class PreviewHotelImage: UIViewController {
+class PreviewHotel: UIViewController {
     
-    static var identifier: String { String(describing: self )}
-    static var nib: UINib { UINib(nibName: identifier, bundle: nil )}
+    static var id: String { String(describing: self )}
+    static var nib: UINib { UINib(nibName: self.id, bundle: nil )}
     let imageView: UIImageView = UIImageView()
     
     override func viewDidLoad() {

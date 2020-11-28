@@ -14,8 +14,15 @@ final class Handler: Json {
             
             for i in hotels.indices {
                 guard let url = URL(string: "https://github.com/iMofas/ios-android-test/raw/master/\(i+1).jpg") else { fatalError() }
-                hotels[i].image = API.shared.loadImage(url)
+                if let imagedata = API.shared.loadImageData(url) {
+                    hotels[i].imagedata = imagedata
+                } else {
+                    if let data = UIImage(named: "imagecomingsoon")?.pngData() {
+                        hotels[i].imagedata = data
+                    }
+                }
             }
+            sleep(1)
             return hotels as? [T]
         } catch {
             fatalError("Couldn't parse \([T].self):\n\(error.localizedDescription)")

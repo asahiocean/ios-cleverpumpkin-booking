@@ -6,7 +6,7 @@ struct TopView : View {
     
     var body: some View {
         HStack(spacing: 1.0) {
-            Image(uiImage: hotel.image)
+            Image(uiImage: UIImage(data: hotel.imagedata)!)
                 .resizable()
                 .frame(width: 100, height: 100)
                 .aspectRatio(1, contentMode: .fit)

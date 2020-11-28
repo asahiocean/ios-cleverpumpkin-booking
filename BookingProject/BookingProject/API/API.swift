@@ -1,28 +1,38 @@
 import Foundation
-import UIKit
 
 final class API {
     
     static let shared = API()
-    let cache = NSCache<NSURL, UIImage>()
+    private let storage = Storage.shared
     
     func getData(url: String) -> Data {
+        guard let url = URL(string: url) else { fatalError() }
         do {
-            let url = URL(string: url)!
-            return try Data(contentsOf: url)
+            let data = try Data(contentsOf: url, options: .uncached)
+            storage.cache.setObject(NSData(data: data), forKey: url as NSURL)
+            return data
         } catch {
             fatalError(error.localizedDescription)
         }
     }
     
-    func loadImage(_ url: URL) -> UIImage {
-        if let image = cache.object(forKey: url as NSURL) {
-            return image
-        } else if let data = try? Data(contentsOf: url, options: .uncached), let image = UIImage(data: data) {
-            cache.setObject(image, forKey: url as NSURL)
-            return image
+    func loadImageData(_ url: URL) -> Data? {
+        
+        let data: Data
+        
+        if let nsdata = storage.cache.object(forKey: url as NSURL) {
+            data = Data(referencing: nsdata)
+            return data
+        } else {
+            do {
+                data = try Data(contentsOf: url, options: [.dataReadingMapped, .uncached])
+                let nsdata = NSData(data: data)
+                storage.cache.setObject(nsdata, forKey: url as NSURL)
+                return data
+            } catch {
+                return nil
+            }
         }
-        return UIImage(named: "imagecomingsoon")!
     }
     private init() { }
 }
