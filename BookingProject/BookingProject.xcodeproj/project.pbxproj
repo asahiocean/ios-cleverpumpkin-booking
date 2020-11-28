@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -190,7 +190,6 @@
 				3D93A5DD256301B60066616E /* BookingProjectTests */,
 				3D93A5E8256301B60066616E /* BookingProjectUITests */,
 				3D93A5C2256301B50066616E /* Products */,
-				7DB08C16DAE819660FA6BD55 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,13 +321,6 @@
 				3DFE4AAD2565914F0042F079 /* PreviewHotel.xib */,
 			);
 			path = PreviewHotelImage;
-			sourceTree = "<group>";
-		};
-		7DB08C16DAE819660FA6BD55 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
