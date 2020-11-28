@@ -2,11 +2,17 @@ import Foundation
 import SwiftUI
 
 extension TableViewController {
+    
+    static var delayscreen: UIHostingController<DelayScreen>?
+    
     internal func delayScreen() {
         let screen = DelayScreen()
-        let hostVC = UIHostingController(rootView: screen)
-        hostVC.modalPresentationStyle = .fullScreen
-        present(hostVC, animated: false, completion: { })
+        Self.delayscreen = UIHostingController(rootView: screen)
+        if let host = Self.delayscreen {
+            host.isModalInPresentation = false
+            host.modalPresentationStyle = .fullScreen
+            present(host, animated: true, completion: nil)
+        }
     }
     
     internal func updaterHotels() {
