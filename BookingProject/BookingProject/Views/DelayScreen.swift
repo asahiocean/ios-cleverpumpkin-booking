@@ -1,19 +1,5 @@
 import SwiftUI
 
-struct TitleView: View {
-    var body: some View {
-        VStack {
-            Text("Welcome to")
-                .fontWeight(.black)
-                .font(.system(size: 36))
-            Text("Booking")
-                .fontWeight(.black)
-                .font(.system(size: 36))
-                .foregroundColor(.indigo)
-        }
-    }
-}
-
 struct InformationDetailView: View {
     var title: String = "title"
     var subTitle: String = "subTitle"
@@ -62,7 +48,7 @@ struct InfoView: View {
 
 struct DelayScreen: View {
     
-    @State var titleView: TitleView = TitleView()
+    @State var titleView: WelcomeTitleView = WelcomeTitleView()
     @State var infoView: InfoView = InfoView()
 
     @State private var hidden = false
