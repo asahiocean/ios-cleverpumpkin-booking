@@ -16,7 +16,6 @@ struct DelayScreen: View {
             self.infoView //MARK: InfoView
             Button(action: {
                 TableViewController.delayscreen?.dismiss(animated: true, completion: {
-                    print("qweqweqwe")
                  })
             }) {
                 Text("Continue")
