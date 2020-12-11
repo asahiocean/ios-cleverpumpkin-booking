@@ -14,11 +14,11 @@ final class Handler: Json {
             
             for i in hotels.indices {
                 guard let url = URL(string: "https://github.com/iMofas/ios-android-test/raw/master/\(i+1).jpg") else { fatalError() }
-                if let imagedata = API.shared.loadImageData(url) {
-                    hotels[i].imagedata = imagedata
+                if let image = API.shared.loadImage(url) {
+                    hotels[i].image = image
                 } else {
-                    if let data = UIImage(named: "imagecomingsoon")?.pngData() {
-                        hotels[i].imagedata = data
+                    if let image = UIImage(named: "imagecomingsoon") {
+                        hotels[i].image = image
                     }
                 }
             }

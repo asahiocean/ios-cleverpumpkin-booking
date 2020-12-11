@@ -18,7 +18,7 @@ class CustomCell: UITableViewCell {
     func setHotel(_ hotel: Hotel) {
         label.text = hotel.name
         
-        imageview.image = UIImage(data: hotel.imagedata)
+        imageview.image = hotel.image
         _ = imageview.subviews.map({$0.removeFromSuperview()})
     }
 }

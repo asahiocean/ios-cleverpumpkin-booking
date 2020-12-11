@@ -8,7 +8,7 @@ extension TableViewController {
             let bundle = Bundle(for: PreviewHotel.self)
             if let preview = UINib(nibName: PreviewHotel.id, bundle: bundle).instantiate(withOwner: nil, options: nil).first as? PreviewHotel {
                 guard let hotel = storage.hotels?[indexPath.row] else { return nil }
-                preview.imageView.image = UIImage(data: hotel.imagedata)
+                preview.imageView.image = hotel.image
                 return preview
             }
             return nil

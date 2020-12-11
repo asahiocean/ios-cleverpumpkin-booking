@@ -1,4 +1,5 @@
 import Foundation
+import Nuke
 
 final class API {
     
@@ -16,7 +17,27 @@ final class API {
         }
     }
     
-    func loadImageData(_ url: URL) -> Data? {
+    final func loadImage(_ url: URL) -> UIImage? {
+        let semaphore = DispatchSemaphore(value: 0)
+        var _result: PlatformImage?
+        
+        let request = ImageRequest(url: url, priority: .high)
+        
+        ImagePipeline.shared.loadImage(with: request, completion: { response in
+            switch response {
+            case .success(let result):
+                _result = result.image
+                semaphore.signal()
+            case .failure(let error):
+                print(error.localizedDescription)
+                semaphore.signal()
+            }
+        })
+        semaphore.wait()
+        return _result
+    }
+    
+    final func loadImageData(_ url: URL) -> Data? {
         
         let data: Data
         
@@ -27,7 +48,7 @@ final class API {
             do {
                 data = try Data(contentsOf: url, options: [.dataReadingMapped, .uncached])
                 let nsdata = NSData(data: data)
-                storage.cache.setObject(nsdata, forKey: url as NSURL)
+                storage.cache.setObject(nsdata, forKey: url as NSURL); print(data, Date())
                 return data
             } catch {
                 return nil
