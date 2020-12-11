@@ -9,7 +9,7 @@ public class Hotel: Codable, Identifiable, Hashable {
     var distance: Double
     var suitesAvailability: String
     
-    var imagedata: Data
+    var image: UIImage
     var availableRooms: Int
     
     public func hash(into hasher: inout Hasher) {
@@ -17,7 +17,7 @@ public class Hotel: Codable, Identifiable, Hashable {
     }
     
     public static func == (lhs: Hotel, rhs: Hotel) -> Bool {
-        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.address == rhs.address && lhs.stars == rhs.stars && lhs.distance == rhs.distance && lhs.suitesAvailability == rhs.suitesAvailability && lhs.imagedata == rhs.imagedata && lhs.availableRooms == rhs.availableRooms
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.address == rhs.address && lhs.stars == rhs.stars && lhs.distance == rhs.distance && lhs.suitesAvailability == rhs.suitesAvailability && lhs.image == rhs.image && lhs.availableRooms == rhs.availableRooms
     }
     
     enum CodingKeys: String, CodingKey {
@@ -33,7 +33,7 @@ public class Hotel: Codable, Identifiable, Hashable {
         self.distance = distance ?? 0.0
         self.suitesAvailability = suitesAvailability ?? ""
         
-        self.imagedata = .init()
+        self.image = .init()
         self.availableRooms = suitesAvailability?.split(separator: ":").compactMap{Int($0)}.count ?? 0
     }
         
@@ -46,7 +46,7 @@ public class Hotel: Codable, Identifiable, Hashable {
         distance = try values.decode(Double.self, forKey: .distance)
         suitesAvailability = try values.decode(String.self, forKey: .suitesAvailability)
         
-        imagedata = .init()
+        image = .init()
         availableRooms = try values.decode(String.self, forKey: .suitesAvailability).split(separator: ":").compactMap{Int($0)}.count
     }
 

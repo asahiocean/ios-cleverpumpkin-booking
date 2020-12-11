@@ -6,14 +6,14 @@ struct DetailScreen : View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 10, content: {
-            Image(uiImage: UIImage(data: hotel.imagedata)!)
+            Image(uiImage: hotel.image)
                 .resizable()
                 .padding()
                 .border(Color.gray, width: 3)
                 .aspectRatio(1.75, contentMode: .fit)
             VStack(alignment: .leading, spacing: 0, content: {
                 Text("Описание").font(.title)
-                Text(hotel.address)
+                Text(hotel.address)t
                     .lineLimit(nil)
             })
             .ignoresSafeArea(.all)
