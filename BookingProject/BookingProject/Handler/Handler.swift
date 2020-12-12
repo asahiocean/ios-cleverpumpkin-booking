@@ -1,4 +1,3 @@
-import Foundation
 import UIKit
 
 protocol Json {
@@ -9,20 +8,14 @@ final class Handler: Json {
     static func genericData<T: Codable>(_ data: Data) -> [T]? {
         do {
             let raw = try newJSONDecoder().decode([T].self, from: data)
-            
-            guard let hotels = raw as? [Hotel] else { fatalError("NOT HOTELS") }
+            guard let hotels = raw as? [Hotel] else { return nil }
             
             for i in hotels.indices {
-                guard let url = URL(string: "https://github.com/iMofas/ios-android-test/raw/master/\(i+1).jpg") else { fatalError() }
-                if let image = API.shared.loadImage(url) {
-                    hotels[i].image = image
-                } else {
-                    if let image = UIImage(named: "imagecomingsoon") {
-                        hotels[i].image = image
-                    }
+                let urlStr = URLs.image(i+1)
+                if let data = API.shared.imageData(url: urlStr) {
+                    hotels[i].image = UIImage(data: data)!
                 }
             }
-            sleep(1)
             return hotels as? [T]
         } catch {
             fatalError("Couldn't parse \([T].self):\n\(error.localizedDescription)")

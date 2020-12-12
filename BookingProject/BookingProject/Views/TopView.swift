@@ -6,12 +6,14 @@ struct TopView : View {
     
     var body: some View {
         HStack(spacing: 1.0) {
-            Image(uiImage: hotel.image)
-                .resizable()
-                .frame(width: 100, height: 100)
-                .aspectRatio(1, contentMode: .fit)
-                .background(Color(#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)))
-                .padding(5)
+            if let uiImage = hotel.image {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .aspectRatio(1, contentMode: .fit)
+                    .background(Color(#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)))
+                    .padding(5)
+            }
             VStack(alignment: .leading, spacing: 10) {
                 Text(hotel.address)
                     .font(.title)
@@ -31,10 +33,9 @@ struct TopView : View {
 #if DEBUG
 struct TopView_Previews : PreviewProvider {
     static var previews: some View {
-        let data = API.shared.getData(url: URLs.get)
-        if let hotels: [Hotel] = Handler.genericData(data) {
-            TopView(hotel: hotels[0])
-                .previewLayout(.sizeThatFits)
+        if let data = API.shared.getData(url: URLs.get),
+           let hotels: [Hotel] = Handler.genericData(data) {
+            TopView(hotel: hotels[0]).previewLayout(.sizeThatFits)
         }
     }
 }

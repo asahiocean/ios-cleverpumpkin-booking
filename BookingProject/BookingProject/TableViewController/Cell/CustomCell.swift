@@ -11,7 +11,7 @@ class CustomCell: UITableViewCell {
             
     override func awakeFromNib() {
         super.awakeFromNib()
-        loadImageIndicator()
+        // loadImageIndicator()
         imageview.layer.cornerRadius = 10
     }
             
@@ -19,7 +19,7 @@ class CustomCell: UITableViewCell {
         label.text = hotel.name
         
         imageview.image = hotel.image
-        _ = imageview.subviews.map({$0.removeFromSuperview()})
+        // _ = imageview.subviews.map({$0.removeFromSuperview()})
     }
 }
 extension CustomCell {

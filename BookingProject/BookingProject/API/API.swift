@@ -1,59 +1,41 @@
 import Foundation
-import Nuke
+import UIKit.UIImage
 
 final class API {
     
     static let shared = API()
     private let storage = Storage.shared
     
-    func getData(url: String) -> Data {
+    func getData(url: String) -> Data? {
         guard let url = URL(string: url) else { fatalError() }
+        let data: Data
+        
         do {
-            let data = try Data(contentsOf: url, options: .uncached)
-            storage.cache.setObject(NSData(data: data), forKey: url as NSURL)
-            return data
+            data = try Data(contentsOf: url, options: .uncached)
         } catch {
             fatalError(error.localizedDescription)
         }
+        
+        let nsdata = NSData(data: data)
+        storage.cache.setObject(nsdata, forKey: url as NSURL)
+        return data
     }
     
-    final func loadImage(_ url: URL) -> UIImage? {
+    func imageData(url: String) -> Data? {
+        guard let url = URL(string: url) else { fatalError() }
+        
         let semaphore = DispatchSemaphore(value: 0)
-        var _result: PlatformImage?
-        
-        let request = ImageRequest(url: url, priority: .high)
-        
-        ImagePipeline.shared.loadImage(with: request, completion: { response in
-            switch response {
-            case .success(let result):
-                _result = result.image
-                semaphore.signal()
-            case .failure(let error):
-                print(error.localizedDescription)
-                semaphore.signal()
-            }
-        })
+        var data: Data! = .init() {
+            didSet { semaphore.signal() }
+        }
+        do {
+            data = try Data(contentsOf: url, options: [.uncachedRead,.mappedRead])
+        } catch {
+            data = UIImage(named: "imagecomingsoon")?.pngData()
+        }
         semaphore.wait()
-        return _result
+        return data
     }
     
-    final func loadImageData(_ url: URL) -> Data? {
-        
-        let data: Data
-        
-        if let nsdata = storage.cache.object(forKey: url as NSURL) {
-            data = Data(referencing: nsdata)
-            return data
-        } else {
-            do {
-                data = try Data(contentsOf: url, options: [.dataReadingMapped, .uncached])
-                let nsdata = NSData(data: data)
-                storage.cache.setObject(nsdata, forKey: url as NSURL); print(data, Date())
-                return data
-            } catch {
-                return nil
-            }
-        }
-    }
     private init() { }
 }
