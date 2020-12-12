@@ -16,14 +16,12 @@ extension TableViewController {
     
     internal func updaterHotels() {
         updaterGroup.enter()
-        if let data = API.shared.getData(url: URLs.get) {
-            print("Start, \(Date())")
+        if let data = API.shared.loadData(from: URLs.get) {
             updaterQueue.async(group: updaterGroup, execute: { [self] in
                 storage.setdata(data)
             })
             updaterGroup.notify(queue: .main, execute: { [self] in
                 tableView.reloadData()
-                print("End, \(Date())")
             })
         }
     }

@@ -12,8 +12,15 @@ final class Handler: Json {
             
             for i in hotels.indices {
                 let urlStr = URLs.image(i+1)
-                if let data = API.shared.imageData(url: urlStr) {
-                    hotels[i].image = UIImage(data: data)!
+                if let data = API.shared.loadData(from: urlStr) {
+                    switch data.count {
+                    case 0:
+                        if let image = UIImage(named: "imagecomingsoon") {
+                            hotels[i].image = image
+                        }
+                    default:
+                        hotels[i].image = UIImage(data: data)!
+                    }
                 }
             }
             return hotels as? [T]
