@@ -20,12 +20,14 @@ class TableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.contentInset = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
-        UIView.animate(withDuration: 0.15, animations: { NAVBar.sortButton.alpha = 1 })
+        UIView.animate(withDuration: 0.15, animations: { NAVBar.sortButton.alpha = 1
+        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        UIView.animate(withDuration: 0.15, animations: { NAVBar.sortButton.alpha = 0 })
+        UIView.animate(withDuration: 0.15, animations: { NAVBar.sortButton.alpha = 0
+        })
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

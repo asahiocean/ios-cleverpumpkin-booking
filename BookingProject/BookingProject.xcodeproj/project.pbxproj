@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -138,13 +138,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		239990925D6920A47030E7DC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		3D7289FF25693C120001EF28 /* ContextMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +200,6 @@
 				3D93A5DD256301B60066616E /* BookingProjectTests */,
 				3D93A5E8256301B60066616E /* BookingProjectUITests */,
 				3D93A5C2256301B50066616E /* Products */,
-				239990925D6920A47030E7DC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
