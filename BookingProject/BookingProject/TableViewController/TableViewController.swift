@@ -1,4 +1,3 @@
-import Foundation
 import SwiftUI
 import UIKit
 
@@ -12,7 +11,7 @@ class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        delayScreen()
+//        delayScreen()
         updaterHotels()
         tableView.register(CustomCell.nib, forCellReuseIdentifier: CustomCell.id)
         tableViewConfig()
@@ -44,7 +43,8 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let navcon = navigationController else { return }
         if let hotel = storage.hotels?[indexPath.row] {
-            let detailinfo = DetailScreen(hotel: hotel)
+            let detailinfo = DetailScreen(hotel: .constant(hotel))
+            //let detailinfo = DetailScreen(hotel: hotel)
             let hostVC = UIHostingController(rootView: detailinfo)
             navcon.pushViewController(hostVC, animated: true)
         }

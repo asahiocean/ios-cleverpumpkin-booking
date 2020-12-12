@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,7 +24,6 @@
 		3D93A5C5256301B50066616E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A5C4256301B50066616E /* AppDelegate.swift */; };
 		3D93A5C7256301B50066616E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A5C6256301B50066616E /* SceneDelegate.swift */; };
 		3D93A5CF256301B50066616E /* BookingProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A5CD256301B50066616E /* BookingProject.xcdatamodeld */; };
-		3D93A5D1256301B60066616E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D93A5D0256301B50066616E /* Assets.xcassets */; };
 		3D93A5D4256301B60066616E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D93A5D2256301B60066616E /* LaunchScreen.storyboard */; };
 		3D93A5DF256301B60066616E /* BookingProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A5DE256301B60066616E /* BookingProjectTests.swift */; };
 		3D93A5EA256301B60066616E /* BookingProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A5E9256301B60066616E /* BookingProjectUITests.swift */; };
@@ -43,6 +42,9 @@
 		3D97D58A257151B800DFF4BE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D589257151B800DFF4BE /* Storage.swift */; };
 		3D97D5BC2571D8F000DFF4BE /* DelayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D5BB2571D8F000DFF4BE /* DelayScreen.swift */; };
 		3D97D5C82571DA9600DFF4BE /* updater+delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D5C72571DA9600DFF4BE /* updater+delay.swift */; };
+		3DF60E2B258516E200D7072E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D93A5D0256301B50066616E /* Assets.xcassets */; };
+		3DF60E2F258516E400D7072E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D93A5D0256301B50066616E /* Assets.xcassets */; };
+		3DF60E33258516E400D7072E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D93A5D0256301B50066616E /* Assets.xcassets */; };
 		3DFE4AA8256591220042F079 /* PreviewHotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE4AA7256591220042F079 /* PreviewHotel.swift */; };
 		3DFE4AAE2565914F0042F079 /* PreviewHotel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DFE4AAD2565914F0042F079 /* PreviewHotel.xib */; };
 		3DFFBA9D25731D5B00CB26D1 /* WelcomeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFFBA9C25731D5B00CB26D1 /* WelcomeTitleView.swift */; };
@@ -161,7 +163,6 @@
 				0367EAB73872EFD863F32A4D /* Pods-BookingProjectTests.debug.xcconfig */,
 				625DAD411D8217C5DED89B11 /* Pods-BookingProjectTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -501,8 +502,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D93A5D4256301B60066616E /* LaunchScreen.storyboard in Resources */,
-				3D93A5D1256301B60066616E /* Assets.xcassets in Resources */,
 				3D9063C225644F8800D7A81F /* CustomCell.xib in Resources */,
+				3DF60E2B258516E200D7072E /* Assets.xcassets in Resources */,
 				3DFE4AAE2565914F0042F079 /* PreviewHotel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +512,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF60E2F258516E400D7072E /* Assets.xcassets in Resources */,
 				3D9063C625644F8800D7A81F /* CustomCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +521,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF60E33258516E400D7072E /* Assets.xcassets in Resources */,
 				3D9063CD25644F8900D7A81F /* CustomCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
