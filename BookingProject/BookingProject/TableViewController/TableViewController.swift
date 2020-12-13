@@ -11,7 +11,7 @@ class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // delayScreen()
+         delayScreen()
         updaterHotels()
         tableView.register(CustomCell.nib, forCellReuseIdentifier: CustomCell.id)
         tableViewConfig()
