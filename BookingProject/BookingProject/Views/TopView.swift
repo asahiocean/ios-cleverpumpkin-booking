@@ -33,7 +33,7 @@ struct TopView : View {
 #if DEBUG
 struct TopView_Previews : PreviewProvider {
     static var previews: some View {
-        if let data = API.shared.getData(url: URLs.get),
+        if let data = API.shared.loadData(from: URLs.get),
            let hotels: [Hotel] = Handler.genericData(data) {
             TopView(hotel: hotels[0]).previewLayout(.sizeThatFits)
         }

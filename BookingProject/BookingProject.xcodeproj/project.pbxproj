@@ -138,6 +138,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D6683B325853E3E0037C8A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3D7289FF25693C120001EF28 /* ContextMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +207,7 @@
 				3D93A5DD256301B60066616E /* BookingProjectTests */,
 				3D93A5E8256301B60066616E /* BookingProjectUITests */,
 				3D93A5C2256301B50066616E /* Products */,
+				3D6683B325853E3E0037C8A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

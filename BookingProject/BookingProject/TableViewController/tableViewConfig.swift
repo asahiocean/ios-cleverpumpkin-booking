@@ -1,5 +1,5 @@
 import Foundation
-import UIKit
+import UIKit.UIScreen
 
 extension TableViewController {
     internal func tableViewConfig() {
@@ -9,10 +9,5 @@ extension TableViewController {
         tableView.estimatedRowHeight = UIScreen.main.bounds.height/10
         tableView.decelerationRate = .fast
         navigationBarConfig()
-        
-        let spinner = UIActivityIndicatorView(style: .large)
-        tableView.backgroundView = spinner
-        spinner.hidesWhenStopped = true
-        spinner.startAnimating()
     }
 }

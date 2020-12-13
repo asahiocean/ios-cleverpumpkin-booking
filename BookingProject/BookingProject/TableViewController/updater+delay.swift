@@ -1,29 +1,40 @@
 import SwiftUI
 
 extension TableViewController {
-    
-    static var delayscreen: UIHostingController<DelayScreen>?
-    
-    internal func delayScreen() {
+        
+    static fileprivate var loadview: UIView = {
+        var view =  UIView()
+        view.clipsToBounds = true
         let screen = DelayScreen()
-        Self.delayscreen = UIHostingController(rootView: screen)
-        if let host = Self.delayscreen {
-            host.isModalInPresentation = false
-            host.modalPresentationStyle = .fullScreen
-            present(host, animated: true, completion: nil)
+        let rootView = UIHostingController(rootView: screen)
+        if let rootView = rootView.view { view = rootView }
+        return view
+    }()
+
+    internal func loadview() {
+        DispatchQueue.main.async {
+            let tvb = self.tableView.bounds
+            let lv = Self.loadview
+            lv.bounds.size = CGSize(width: tvb.width, height: tvb.height)
+            lv.center = CGPoint(x: tvb.midX, y: tvb.midY)
+            self.view.addSubview(Self.loadview)
         }
     }
     
     internal func updaterHotels() {
         updaterGroup.enter()
-        if let data = API.shared.getData(url: URLs.get) {
-            print("Start, \(Date())")
-            updaterQueue.async(group: updaterGroup, execute: { [self] in
-                storage.setdata(data)
+        if let data = API.shared.loadData(from: URLs.get) {
+            DispatchQueue.main.async {
+                self.title = "Looking for hotels..."
+                Self.loadview.isHidden = false
+            }
+            updaterQueue.async(group: updaterGroup, execute: {
+                self.storage.setdata(data)
             })
-            updaterGroup.notify(queue: .main, execute: { [self] in
-                tableView.reloadData()
-                print("End, \(Date())")
+            updaterGroup.notify(queue: .main, execute: {
+                self.tableView.reloadData()
+                self.title = "Hotels"
+                Self.loadview.isHidden = true
             })
         }
     }

@@ -16,8 +16,7 @@ struct InfoView: View {
 #if DEBUG
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoView()
-            .previewLayout(.sizeThatFits)
+        InfoView().previewLayout(.sizeThatFits)
     }
 }
 #endif
