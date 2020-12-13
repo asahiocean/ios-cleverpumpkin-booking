@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import Accelerate
 
 public let updaterQueue = DispatchQueue(label: "updater.queue")
 public let updaterGroup = DispatchGroup()
@@ -64,73 +65,72 @@ extension UIImage {
         }
         return UIImage(cgImage: cgImageCrop, scale: self.scale, orientation: self.imageOrientation)
     }
-
-    func cropOpaqueRectForImage() -> CGRect {
-        let imageAsCGImage = self.cgImage
-        let context:CGContext? = self.createARGBBitmapContext(inImage: imageAsCGImage!)
-        if let context = context {
-            let width = Int(imageAsCGImage!.width)
-            let height = Int(imageAsCGImage!.height)
-            let rect:CGRect = CGRect(x: 0.0, y: 0.0, width: CGFloat(width), height: CGFloat(height))
-            // let q = CGContext(context, rect, imageAsCGImage)
-            
-            var lowX:Int = width
-            var lowY:Int = height
-            var highX:Int = 0
-            var highY:Int = 0
-            if let data = context.data {
-                let dataType: UnsafeMutablePointer<UInt8>? = data.assumingMemoryBound(to: UInt8.self) //UnsafeMutablePointer<UInt8>(data)
-                if let dataType = dataType {
-                    for y in 0..<height {
-                        for x in 0..<width {
-                            let pixelIndex: Int = (width * y + x) * 4 /* 4 for A, R, G, B */;
-                            if (dataType[pixelIndex] != 232) { //Alpha value is not zero; pixel is not transparent.
-                                if (x < lowX) { lowX = x };
-                                if (x > highX) { highX = x };
-                                if (y < lowY) { lowY = y};
-                                if (y > highY) { highY = y};
-                            }
-                        }
-                    }
-                }
-                free(data)
-            } else {
-                return .zero
-            }
-            return CGRect(x: CGFloat(lowX), y: CGFloat(lowY), width: CGFloat(highX-lowX), height: CGFloat(highY-lowY))
-            
-        }
-        return .zero
-    }
     
-    func createARGBBitmapContext(inImage: CGImage) -> CGContext {
-        var bitmapByteCount = 0
-        var bitmapBytesPerRow = 0
+    func cropOpaqueRectForImage() -> CGRect {
+        guard let cgImage = self.cgImage, let context = createARGBBitmapContext(from: cgImage) else { return .zero }
+        
+        let width: Int = cgImage.width
+        let height: Int = cgImage.height
+        let rect = CGRect(x: 0.0, y: 0.0, width: CGFloat(width), height: CGFloat(height))
+        context.draw(cgImage, in: rect)
+        
+        var minX = width
+        var maxX = 0
+        var minY = height
+        var maxY = 0
+        
+        guard let data = context.data else { return .zero }
+        
+        let dataType: UnsafeMutablePointer<UInt8> = data.assumingMemoryBound(to: UInt8.self)
+        for y in 0..<height {
+            for x in 0..<width {
+                let pixelIndex = (width * y + x) * 4 /* 4 for A, R, G, B */
+                if dataType[pixelIndex] != 0 { // Alpha value is not zero; pixel is not transparent.
+                    minX = x < minX ? 0 : x
+                    maxX = x > maxX ? 0 : x
+                    minY = y < minY ? 0 : y
+                    maxY = y > maxY ? 0 : y
+                }
+            }
+        }
+        // free(data)
+        return CGRect(x: CGFloat(minX), y: CGFloat(minY), width: CGFloat(maxX - minX), height: CGFloat(maxY - minY))
+    }
+
+    
+    func createARGBBitmapContext(from cgImage: CGImage) -> CGContext? {
+        var byteCount = 0
+        var bytesPerRow = 0
         
         //Get image width, height
-        let pixelsWide = inImage.width
-        let pixelsHigh = inImage.height
+        let w = cgImage.width
+        let h = cgImage.height
         
         // Declare the number of bytes per row. Each pixel in the bitmap in this
         // example is represented by 4 bytes; 8 bits each of red, green, blue, and
         // alpha.
-        bitmapBytesPerRow = Int(pixelsWide) * 4
-        bitmapByteCount = bitmapBytesPerRow * Int(pixelsHigh)
+        bytesPerRow = w * 4
+        byteCount = bytesPerRow * h
         
         // Use the generic RGB color space.
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let colorSpace: CGColorSpace = CGColorSpaceCreateDeviceRGB()
         
         // Allocate memory for image data. This is the destination in memory
         // where any drawing to the bitmap context will be rendered.
-        let bitmapData = malloc(bitmapByteCount)
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
+        let bitmapData: UnsafeMutableRawPointer = malloc(byteCount)
+        let bitmapInfo: CGBitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
         
         // Create the bitmap context. We want pre-multiplied ARGB, 8-bits
         // per component. Regardless of what the source image format is
         // (CMYK, Grayscale, and so on) it will be converted over to the format
         // specified here by CGBitmapContextCreate.
-        let context = CGContext(data: bitmapData, width: pixelsWide, height: pixelsHigh, bitsPerComponent: 8, bytesPerRow: bitmapBytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
-        
-        return context!
+        guard let context = CGContext(data: bitmapData,
+                                width: w,
+                                height: h,
+                                bitsPerComponent: 8,
+                                bytesPerRow: bytesPerRow,
+                                space: colorSpace,
+                                bitmapInfo: bitmapInfo.rawValue) else { return nil }
+        return context
     }
 }
