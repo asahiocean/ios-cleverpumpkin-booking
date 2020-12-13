@@ -154,6 +154,7 @@ struct DelayScreen: View {
     
     var body: some View {
         Badge()
+            .scaleEffect(0.5)
             .rotationEffect(.degrees(degrees))
             .onAppear() {
                 withAnimation(animation) { degrees = 360 }

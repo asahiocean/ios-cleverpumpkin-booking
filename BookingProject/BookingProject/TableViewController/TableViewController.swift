@@ -11,12 +11,12 @@ class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         delayScreen()
+        loadview()
         updaterHotels()
         tableView.register(CustomCell.nib, forCellReuseIdentifier: CustomCell.id)
         tableViewConfig()
     }
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.contentInset = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
