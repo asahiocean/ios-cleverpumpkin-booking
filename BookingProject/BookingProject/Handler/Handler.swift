@@ -19,7 +19,7 @@ final class Handler: Json {
                             hotels[i].image = image
                         }
                     default:
-                        if let image = UIImage(data: data)?.imageByCroppingTransparentPixels() {
+                        if let image = UIImage(data: data)?.crop(w: 1, h: 1) {
                             hotels[i].image = image
                         }
                     }

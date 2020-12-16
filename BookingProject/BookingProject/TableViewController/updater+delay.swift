@@ -27,6 +27,7 @@ extension TableViewController {
             DispatchQueue.main.async {
                 self.title = "Looking for hotels..."
                 Self.loadview.isHidden = false
+                NAVBar.sortButton.isHidden = true
             }
             updaterQueue.async(group: updaterGroup, execute: {
                 self.storage.setdata(data)
@@ -35,6 +36,7 @@ extension TableViewController {
                 self.tableView.reloadData()
                 self.title = "Hotels"
                 Self.loadview.isHidden = true
+                NAVBar.sortButton.isHidden = false
             })
         }
     }

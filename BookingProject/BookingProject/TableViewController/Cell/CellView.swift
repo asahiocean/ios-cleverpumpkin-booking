@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TopView : View {
+struct Cell: View {
     
     @State var hotel: Hotel
     
@@ -15,28 +15,34 @@ struct TopView : View {
                     .padding(5)
             }
             VStack(alignment: .leading, spacing: 10) {
+                Text(hotel.name)
+                    .lineLimit(1)
+                    .font(.custom("Andale Mono", size: 30))
+                    .padding(.trailing, 10)
                 Text(hotel.address)
-                    .font(.title)
+                    .font(.subheadline)
                     .padding(.trailing, 10)
                 HStack {
                     let dist = String(Int(hotel.distance * 10))
                     Text(dist + " м. от центра")
+                        .font(.subheadline)
                     Spacer()
-                    Text(String(hotel.stars))
-                        .padding(.trailing, 10)
+                    let stars = hotel.stars
+                    Text(
+                        String(repeating: "⭑", count: stars) +
+                        String(repeating: "✩", count: 5 - stars)
+                    ).padding(.trailing, 10)
                 }
             }
         }
     }
 }
 
-#if DEBUG
-struct TopView_Previews : PreviewProvider {
+struct CellView_Previews: PreviewProvider {
     static var previews: some View {
         if let data = API.shared.loadData(from: URLs.get),
            let hotels: [Hotel] = Handler.genericData(data) {
-            TopView(hotel: hotels[0]).previewLayout(.sizeThatFits)
+            Cell(hotel: hotels[0]).previewLayout(.sizeThatFits)
         }
     }
 }
-#endif
