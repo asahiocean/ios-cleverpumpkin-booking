@@ -13,23 +13,19 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         loadview()
         updaterHotels()
-        tableView.register(CustomCell.nib, forCellReuseIdentifier: CustomCell.id)
+        self.tableView.register(HostingCell<Cell>.self, forCellReuseIdentifier: "HostingCell<CellView>")
         tableViewConfig()
     }
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.contentInset = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
-        UIView.animate(withDuration: 0.15, animations: {
-            NAVBar.sortButton.alpha = 1
-        })
+        NAVBar.sortButton.isHidden = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        UIView.animate(withDuration: 0.15, animations: {
-            NAVBar.sortButton.alpha = 0
-        })
+        NAVBar.sortButton.isHidden = true
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,15 +36,17 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.id, for: indexPath) as? CustomCell else { fatalError() }
-        if let hotel = storage.hotels?[indexPath.row] { cell.setHotel(hotel) }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HostingCell<CellView>", for: indexPath) as! HostingCell<Cell>
+        if let hotel = storage.hotels?[indexPath.row] {
+            cell.set(rootView: Cell(hotel: hotel))
+        }
         return cell
     }
+        
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let navcon = navigationController else { return }
         if let hotel = storage.hotels?[indexPath.row] {
             let detailinfo = DetailScreen(hotel: .constant(hotel))
-            //let detailinfo = DetailScreen(hotel: hotel)
             let hostVC = UIHostingController(rootView: detailinfo)
             navcon.pushViewController(hostVC, animated: true)
         }

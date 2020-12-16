@@ -2,7 +2,6 @@ import Foundation
 import UIKit
 
 extension TableViewController {
-            
     var rightBarButtonMenu: UIMenu {
         return UIMenu(title: "Сотрировка", children: [
             UIAction(title: "По умолчанию", image: UIImage(systemName: "arrow.clockwise", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal), handler: { [self] _ -> Void in
@@ -14,7 +13,6 @@ extension TableViewController {
                 DispatchQueue.main.async { tableView.reloadData() }
             }),
             UIAction(title: "Расстояние от центра", image: UIImage(systemName: "location.north.fill", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal), handler: { [self] _ -> Void in
-
                 DispatchQueue.main.async { tableView.reloadData() }
             })
         ])
