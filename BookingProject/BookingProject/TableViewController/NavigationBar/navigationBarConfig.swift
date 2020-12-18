@@ -2,18 +2,37 @@ import Foundation
 import UIKit
 
 extension TableViewController {
+    fileprivate func defaultSort() {
+        storage.hotels = storage.hotels_sort_default
+        DispatchQueue.main.async(execute: { [self] in
+            tableView.reloadData()
+        })
+    }
+    
+    fileprivate func availableRooms_ascend() {
+        storage.hotels = storage.hotels_sort_rooms_ascend
+        DispatchQueue.main.async(execute: { [self] in
+            tableView.reloadData()
+        })
+    }
+    
+    fileprivate func distance_ascend() {
+        storage.hotels = storage.hotels_sort_dist_ascend
+        DispatchQueue.main.async(execute: { [self] in
+            tableView.reloadData()
+        })
+    }
+    
     var rightBarButtonMenu: UIMenu {
         return UIMenu(title: "Сотрировка", children: [
             UIAction(title: "По умолчанию", image: UIImage(systemName: "arrow.clockwise", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal), handler: { [self] _ -> Void in
-
-                DispatchQueue.main.async { tableView.reloadData() }
+                defaultSort()
             }),
             UIAction(title: "Свободные комнаты", image: UIImage(systemName: "bed.double.fill", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal), handler: { [self] _ -> Void in
-
-                DispatchQueue.main.async { tableView.reloadData() }
+                availableRooms_ascend()
             }),
             UIAction(title: "Расстояние от центра", image: UIImage(systemName: "location.north.fill", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal), handler: { [self] _ -> Void in
-                DispatchQueue.main.async { tableView.reloadData() }
+                distance_ascend()
             })
         ])
     }
@@ -58,22 +77,20 @@ extension TableViewController {
     
     @objc func rightButtonTapped(_ action: UIAction) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
+        //MARK: -- By available rooms
         let availableRooms = UIAlertAction(title: "By available rooms", style: .default) { [self] (action) -> Void in
-
-            DispatchQueue.main.async { tableView.reloadData() }
+            availableRooms_ascend()
         }
-        
+        //MARK: -- By distance
         let distance = UIAlertAction(title: "By distance", style: .default) { [self] (action) -> Void in
-
-            DispatchQueue.main.async { tableView.reloadData() }
+            distance_ascend()
+            
         }
-        
+        //MARK: -- By default
         let _default = UIAlertAction(title: "By default", style: .default) { [self] (action) -> Void in
-
-            DispatchQueue.main.async { tableView.reloadData() }
+            defaultSort()
         }
-        
+        //MARK: -- Cancel
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { [self] (action) -> Void in
             print("Cancel")
         }

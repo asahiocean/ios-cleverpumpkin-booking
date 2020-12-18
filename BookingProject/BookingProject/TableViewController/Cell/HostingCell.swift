@@ -13,11 +13,14 @@ final class HostingCell<Content: View>: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        host.view.frame.size = bounds.size // host.sizeThatFits(in: bounds.size)
+        host.view.frame.size = bounds.size
     }
 
     public func set(rootView: Content) {
         host.rootView = rootView
-        if !contentView.subviews.contains(host.view) { contentView.addSubview(host.view) }
+        contentView.addSubview(host.view)
+        if !contentView.subviews.contains(host.view) {
+            contentView.addSubview(host.view)
+        }
     }
 }
