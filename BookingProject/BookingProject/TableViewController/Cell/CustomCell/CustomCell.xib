@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="156" id="RYO-g6-o8c" customClass="CustomCell" customModule="BookingProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RYO-g6-o8c" id="det-OV-ec1">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L4o-3g-v2z">
+                        <rect key="frame" x="5" y="5" width="90" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="L4o-3g-v2z" secondAttribute="height" multiplier="1:1" id="Ugv-AS-0kN"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hotel Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ke-PV-Skw">
+                        <rect key="frame" x="100" y="5" width="108" height="26.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9v-U2-m7z">
+                        <rect key="frame" x="100" y="41" width="97.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100m from city center" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PM0-BK-8Gd">
+                        <rect key="frame" x="100" y="78" width="133.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="★★★★★" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3X-H0-vHY">
+                        <rect key="frame" x="343" y="77" width="66" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxT-r6-vTP">
+                        <rect key="frame" x="328.5" y="77" width="9.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="l3X-H0-vHY" secondAttribute="trailing" constant="5" id="1Dt-re-8UH"/>
+                    <constraint firstItem="h9v-U2-m7z" firstAttribute="leading" secondItem="9ke-PV-Skw" secondAttribute="leading" id="6er-8g-ZfE"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9ke-PV-Skw" secondAttribute="trailing" constant="1" id="A9e-Ob-0GD"/>
+                    <constraint firstItem="9ke-PV-Skw" firstAttribute="leading" secondItem="L4o-3g-v2z" secondAttribute="trailing" constant="5" id="DVK-H8-X5W"/>
+                    <constraint firstItem="PM0-BK-8Gd" firstAttribute="bottom" secondItem="det-OV-ec1" secondAttribute="bottomMargin" constant="5" id="FMI-zx-ELT"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="PM0-BK-8Gd" secondAttribute="trailing" constant="1" id="Fng-iv-RYw"/>
+                    <constraint firstItem="l3X-H0-vHY" firstAttribute="centerY" secondItem="PM0-BK-8Gd" secondAttribute="centerY" id="I1k-uR-Vo1"/>
+                    <constraint firstItem="L4o-3g-v2z" firstAttribute="centerY" secondItem="det-OV-ec1" secondAttribute="centerY" id="Mbk-AK-vEE"/>
+                    <constraint firstAttribute="bottom" secondItem="L4o-3g-v2z" secondAttribute="bottom" constant="5" id="QWU-0D-Xkl"/>
+                    <constraint firstItem="h9v-U2-m7z" firstAttribute="centerY" secondItem="det-OV-ec1" secondAttribute="centerY" id="R56-7L-SJh"/>
+                    <constraint firstItem="oxT-r6-vTP" firstAttribute="centerY" secondItem="PM0-BK-8Gd" secondAttribute="centerY" id="VQM-af-0Av"/>
+                    <constraint firstItem="PM0-BK-8Gd" firstAttribute="leading" secondItem="9ke-PV-Skw" secondAttribute="leading" id="Wgu-rq-lFR"/>
+                    <constraint firstItem="9ke-PV-Skw" firstAttribute="top" secondItem="det-OV-ec1" secondAttribute="top" constant="5" id="dpZ-KG-dML"/>
+                    <constraint firstItem="l3X-H0-vHY" firstAttribute="leading" secondItem="oxT-r6-vTP" secondAttribute="trailing" constant="5" id="iPA-sE-Bqq"/>
+                    <constraint firstItem="L4o-3g-v2z" firstAttribute="top" secondItem="det-OV-ec1" secondAttribute="top" constant="5" id="jES-p8-NcQ"/>
+                    <constraint firstAttribute="bottom" secondItem="l3X-H0-vHY" secondAttribute="bottom" constant="5" id="slY-9o-T0C"/>
+                    <constraint firstItem="L4o-3g-v2z" firstAttribute="leading" secondItem="det-OV-ec1" secondAttribute="leading" constant="5" id="wwB-ia-t56"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="h9v-U2-m7z" secondAttribute="trailing" constant="1" id="xKr-5O-JCL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="address" destination="h9v-U2-m7z" id="D2A-tq-LHq"/>
+                <outlet property="distance" destination="PM0-BK-8Gd" id="Oet-Fm-z2N"/>
+                <outlet property="imageview" destination="L4o-3g-v2z" id="tK5-Ox-g7m"/>
+                <outlet property="rooms" destination="oxT-r6-vTP" id="JQl-ff-j5H"/>
+                <outlet property="stars" destination="l3X-H0-vHY" id="G5S-Ga-oQM"/>
+                <outlet property="title" destination="9ke-PV-Skw" id="Hg7-ZO-Spb"/>
+            </connections>
+            <point key="canvasLocation" x="-59.420289855072468" y="77.678571428571431"/>
+        </tableViewCell>
+    </objects>
+</document>

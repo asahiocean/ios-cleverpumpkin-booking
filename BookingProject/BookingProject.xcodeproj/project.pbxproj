@@ -14,6 +14,8 @@
 		3D728A0125693C280001EF28 /* contextMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D728A0025693C280001EF28 /* contextMenuConfig.swift */; };
 		3D728A0D25694EB20001EF28 /* NAVBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D728A0C25694EB20001EF28 /* NAVBar.swift */; };
 		3D728A1425694F270001EF28 /* largeTitleHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D728A1325694F270001EF28 /* largeTitleHeight.swift */; };
+		3D792909258C8412006CE8B2 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D792908258C8412006CE8B2 /* CustomCell.swift */; };
+		3D79290E258C8476006CE8B2 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D79290D258C8476006CE8B2 /* CustomCell.xib */; };
 		3D9063812564372800D7A81F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9063802564372800D7A81F /* TableViewController.swift */; };
 		3D9063822564372800D7A81F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9063802564372800D7A81F /* TableViewController.swift */; };
 		3D9063832564372800D7A81F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9063802564372800D7A81F /* TableViewController.swift */; };
@@ -69,6 +71,8 @@
 		3D728A0025693C280001EF28 /* contextMenuConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contextMenuConfig.swift; sourceTree = "<group>"; };
 		3D728A0C25694EB20001EF28 /* NAVBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NAVBar.swift; sourceTree = "<group>"; };
 		3D728A1325694F270001EF28 /* largeTitleHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = largeTitleHeight.swift; sourceTree = "<group>"; };
+		3D792908258C8412006CE8B2 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		3D79290D258C8476006CE8B2 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		3D9063802564372800D7A81F /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3D9063B425643CE100D7A81F /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
 		3D93A5C1256301B50066616E /* BookingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +198,15 @@
 			path = UINavigationBar;
 			sourceTree = "<group>";
 		};
+		3D792907258C83FE006CE8B2 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D792908258C8412006CE8B2 /* CustomCell.swift */,
+				3D79290D258C8476006CE8B2 /* CustomCell.xib */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		3D9063872564377E00D7A81F /* TableViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +223,7 @@
 		3D90639C2564384800D7A81F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				3D792907258C83FE006CE8B2 /* CustomCell */,
 				3D33B091258779070072F2A3 /* HostingCell.swift */,
 				3D33B09625877B900072F2A3 /* Cell.swift */,
 			);
@@ -458,6 +472,7 @@
 			files = (
 				3D93A5D4256301B60066616E /* LaunchScreen.storyboard in Resources */,
 				3DF60E2B258516E200D7072E /* Assets.xcassets in Resources */,
+				3D79290E258C8476006CE8B2 /* CustomCell.xib in Resources */,
 				3DFE4AAE2565914F0042F079 /* PreviewHotel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +513,7 @@
 				3D93A64E2563C4C70066616E /* Handler.swift in Sources */,
 				3D728A0D25694EB20001EF28 /* NAVBar.swift in Sources */,
 				3D97D5C82571DA9600DFF4BE /* updater+delay.swift in Sources */,
+				3D792909258C8412006CE8B2 /* CustomCell.swift in Sources */,
 				3DFFBAB125736B2B00CB26D1 /* Color_Indigo.swift in Sources */,
 				3D93A632256331650066616E /* extensionCodableTask.swift in Sources */,
 				3D93A5C7256301B50066616E /* SceneDelegate.swift in Sources */,

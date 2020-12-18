@@ -13,7 +13,8 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         loadview()
         updaterHotels()
-        self.tableView.register(HostingCell<Cell>.self, forCellReuseIdentifier: "HostingCell<CellView>")
+        tableView.register(UINib(nibName: CustomCell.id, bundle: nil), forCellReuseIdentifier: CustomCell.id)
+        // self.tableView.register(HostingCell<Cell>.self, forCellReuseIdentifier: "HostingCell<CellView>")
         tableViewConfig()
     }
         
@@ -36,9 +37,11 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HostingCell<CellView>", for: indexPath) as! HostingCell<Cell>
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "HostingCell<CellView>", for: indexPath) as! HostingCell<Cell>
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.id, for: indexPath) as! CustomCell
         if let hotel = storage.hotels?[indexPath.row] {
-            cell.set(rootView: Cell(hotel: hotel))
+            cell.set(hotel: hotel)
+            //cell.set(rootView: Cell(hotel: hotel))
         }
         return cell
     }

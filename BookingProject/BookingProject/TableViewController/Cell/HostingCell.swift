@@ -18,6 +18,9 @@ final class HostingCell<Content: View>: UITableViewCell {
 
     public func set(rootView: Content) {
         host.rootView = rootView
-        if !contentView.subviews.contains(host.view) { contentView.addSubview(host.view) }
+        contentView.addSubview(host.view)
+//
+//        if !contentView.subviews.contains(host.view) { contentView.addSubview(host.view)
+//        }
     }
 }
