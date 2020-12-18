@@ -5,18 +5,35 @@ struct DetailScreen : View {
     @Binding public var hotel: Hotel
     
     var body: some View {
-        VStack(alignment: .center, spacing: 10, content: {
+        VStack(alignment: .leading, spacing: 10, content: {
             Image(uiImage: hotel.image)
                 .resizable()
                 .scaledToFit()
-            VStack(alignment: .leading, spacing: 0, content: {
-                Text("Описание")
-                    .font(.title)
+                .cornerRadius(15.0, antialiased: true)
+            HStack(spacing: 10, content: {
+                Text("Rating:")
+                Text(String(repeating: "⭑", count: hotel.stars) + String(repeating: "✩", count: 5 - hotel.stars))
+                    .lineLimit(1)
+                    .font(Font.title2)
+                    .foregroundColor(Color(#colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)))
+                    .padding(.bottom, 5)
+                    .padding(.trailing, 10)
+            })
+            HStack(spacing: 10, content: {
+                Text("Available rooms:")
+                Text("\(hotel.availableRooms)")
+                    .font(Font.body.weight(.semibold))
+            })
+            HStack(spacing: 10, content: {
+                Text("Address:")
                 Text(hotel.address)
-                    .lineLimit(nil)
-            }).ignoresSafeArea(.all)
+                    .lineLimit(1)
+                    .font(Font.body.weight(.semibold))
+            })
             Spacer()
-        }).navigationBarTitle(hotel.name, displayMode: .large)
+        })
+        .scaleEffect(0.975)
+        .navigationBarTitle(hotel.name, displayMode: .large)
     }
 }
 

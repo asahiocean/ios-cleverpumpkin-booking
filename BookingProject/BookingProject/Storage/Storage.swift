@@ -17,7 +17,9 @@ final class Storage {
     final func setdata(_ data: Data) {
         hotels = Handler.genericData(data)
         updaterGroup.leave()
-        self.hotelsSorter()
+        DispatchQueue.global(qos: .background).async {
+            self.hotelsSorter()
+        }
     }
     
     final private func hotelsSorter() {

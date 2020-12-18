@@ -3,31 +3,24 @@ import UIKit
 
 extension TableViewController {
     fileprivate func defaultSort() {
-        DispatchQueue.global(qos: .background).async { [self] in
-            storage.hotels = storage.hotels_sort_default
-            DispatchQueue.main.async(execute: { [self] in
-                tableView.reloadData()
-            })
-        }
+        storage.hotels = storage.hotels_sort_default
+        DispatchQueue.main.async(execute: { [self] in
+            tableView.reloadData()
+        })
     }
     
     fileprivate func availableRooms_ascend() {
-        print("QWEQWEQWEQWEQWEWQE")
-        DispatchQueue.global(qos: .background).async { [self] in
-            storage.hotels = storage.hotels_sort_rooms_ascend
-            DispatchQueue.main.async(execute: { [self] in
-                tableView.reloadData()
-            })
-        }
+        storage.hotels = storage.hotels_sort_rooms_ascend
+        DispatchQueue.main.async(execute: { [self] in
+            tableView.reloadData()
+        })
     }
     
     fileprivate func distance_ascend() {
-        DispatchQueue.global(qos: .background).async { [self] in
-            storage.hotels = storage.hotels_sort_dist_ascend
-            DispatchQueue.main.async(execute: { [self] in
-                tableView.reloadData()
-            })
-        }
+        storage.hotels = storage.hotels_sort_dist_ascend
+        DispatchQueue.main.async(execute: { [self] in
+            tableView.reloadData()
+        })
     }
     
     var rightBarButtonMenu: UIMenu {
@@ -86,16 +79,16 @@ extension TableViewController {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         //MARK: -- By available rooms
         let availableRooms = UIAlertAction(title: "By available rooms", style: .default) { [self] (action) -> Void in
-            availableRooms_ascend(); print("By available rooms")
+            availableRooms_ascend()
         }
         //MARK: -- By distance
         let distance = UIAlertAction(title: "By distance", style: .default) { [self] (action) -> Void in
-            distance_ascend(); print("By distance")
+            distance_ascend()
             
         }
         //MARK: -- By default
         let _default = UIAlertAction(title: "By default", style: .default) { [self] (action) -> Void in
-            defaultSort(); print("By default")
+            defaultSort()
         }
         //MARK: -- Cancel
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { [self] (action) -> Void in
