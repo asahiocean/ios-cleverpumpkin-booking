@@ -10,21 +10,26 @@ final class API {
         guard let url = URL(string: url) else { fatalError() }
         
         let semaphore = DispatchSemaphore(value: 0)
-        let data: Data
+        let resultData: Data?
         
-        do {
-            data = try Data(contentsOf: url, options: [.uncachedRead,.mappedRead])
-            let nsdata = NSData(data: data)
-            storage.cache.setObject(nsdata, forKey: url as NSURL)
+        if let cachedData = UserDefaults.standard.data(forKey: url.absoluteString) {
+            resultData = cachedData
             semaphore.signal()
-        } catch {
-            data = .init()
-            semaphore.signal()
+        } else {
+            do {
+                let newData = try Data(contentsOf: url, options: [.uncachedRead,.mappedRead])
+                storage.userDefaults.set(newData, forKey: url.absoluteString)
+                resultData = newData
+                semaphore.signal()
+            } catch {
+                resultData = nil
+                semaphore.signal()
+            }
         }
-        
         semaphore.wait()
-        return data
+        storage.userDefaults.synchronize()
+        return resultData
     }
-        
+    
     private init() { }
 }
