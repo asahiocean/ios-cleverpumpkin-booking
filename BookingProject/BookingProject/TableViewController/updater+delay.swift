@@ -23,7 +23,7 @@ extension TableViewController {
     
     internal func updaterHotels() {
         updaterGroup.enter()
-        if let data = API.shared.loadData(from: URLs.get) {
+        if let data = API.shared.load(from: URLs.get) {
             DispatchQueue.main.async {
                 self.title = "Looking for hotels..."
                 Self.loadview.isHidden = false

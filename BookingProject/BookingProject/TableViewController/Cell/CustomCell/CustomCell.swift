@@ -34,7 +34,7 @@ class CustomCell: UITableViewCell {
         distance.text = "\(String(describing: Int(hotel.distance)))m from city center"
         rooms.text = "AR: \(hotel.availableRooms)"
         stars.text = String(repeating: "⭑", count: hotel.stars) + String(repeating: "✩", count: 5 - hotel.stars)
-
+        
         imageview.image = hotel.image
     }
 }

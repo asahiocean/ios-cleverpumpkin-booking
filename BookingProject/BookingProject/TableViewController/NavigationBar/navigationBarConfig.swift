@@ -91,7 +91,7 @@ extension TableViewController {
             defaultSort()
         }
         //MARK: -- Cancel
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { [self] (action) -> Void in
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
             print("Cancel")
         }
         

@@ -16,7 +16,7 @@ final class Storage {
     private(set) public var hotels_sort_rooms_descend: [Hotel]!
         
     final func setdata(_ data: Data) {
-        hotels = Handler.dataToArray(data)
+        hotels = Handler.codableArray(data)
         updaterGroup.leave()
         DispatchQueue.global(qos: .utility).async {
             self.hotelsSorter()

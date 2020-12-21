@@ -9,58 +9,25 @@ public class Hotel: Codable, Identifiable, Hashable {
     var distance: Double
     var suitesAvailability: String
     
-    public class Details: Codable, Identifiable, Hashable {
-        public var id: Int?
-        var name, address: String?
-        var stars, distance: Int?
-        var image, suitesAvailability: String?
-        var lat, lon: Double?
-
-        enum CodingKeys: String, CodingKey {
-            case id, name, address, stars, distance, image
-            case suitesAvailability = "suites_availability"
-            case lat, lon
-        }
-        
-        public func hash(into hasher: inout Hasher) {
-            hasher.combine(id)
-        }
-        
-        public static func == (lhs: Details, rhs: Details) -> Bool {
-            return lhs.id == rhs.id && lhs.name == rhs.name && lhs.address == rhs.address && lhs.stars == rhs.stars && lhs.distance == rhs.distance && lhs.image == rhs.image && lhs.suitesAvailability == rhs.suitesAvailability && lhs.lat == rhs.lat && lhs.lon == rhs.lon
-        }
-
-        init(id: Int?, name: String?, address: String?, stars: Int?, distance: Int?, image: String?, suitesAvailability: String?, lat: Double?, lon: Double?) {
-            self.id = id ?? 0
-            self.name = name ?? ""
-            self.address = address ?? ""
-            self.stars = stars ?? 0
-            self.distance = distance ?? 0
-            self.image = image ?? ""
-            self.suitesAvailability = suitesAvailability ?? ""
-            self.lat = lat ?? 0.0
-            self.lon = lon ?? 0.0
-        }
-    }
-    
     var details: Details?
-    
     var image: UIImage
     var availableRooms: Int
     
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
+    public func hash(into hasher: inout Hasher) { hasher.combine(id) }
     
     public static func == (lhs: Hotel, rhs: Hotel) -> Bool {
         return lhs.id == rhs.id && lhs.name == rhs.name && lhs.address == rhs.address && lhs.stars == rhs.stars && lhs.distance == rhs.distance && lhs.suitesAvailability == rhs.suitesAvailability && lhs.image == rhs.image && lhs.availableRooms == rhs.availableRooms
     }
     
     enum CodingKeys: String, CodingKey {
-        case id, name, address, stars, distance
+        case id = "id"
+        case name = "name"
+        case address = "address"
+        case stars = "stars"
+        case distance = "distance"
         case suitesAvailability = "suites_availability"
     }
-
+    
     init(id: Int?, name: String?, address: String?, stars: Int?, distance: Double?, suitesAvailability: String?) {
         self.id = id ?? 0
         self.name = name ?? ""

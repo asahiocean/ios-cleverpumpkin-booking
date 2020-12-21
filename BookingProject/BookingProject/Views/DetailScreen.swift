@@ -5,35 +5,35 @@ struct DetailScreen : View {
     
     @Binding public var hotel: Hotel
     
-    struct VeganFoodPlace: Identifiable {
+    struct Place: Identifiable {
         var id = UUID()
         let name: String
-        let latitude: Double
-        let longitude: Double
+        let lat: Double
+        let lon: Double
         
-        var coordinate: CLLocationCoordinate2D {
-            CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        var coord: CLLocationCoordinate2D {
+            CLLocationCoordinate2D(latitude: lat, longitude: lon)
         }
     }
     
     struct MapViewWithAnnotations: View {
-        let veganPlacesInRiga = [
-            VeganFoodPlace(name: "Kozy Eats", latitude: 56.951924, longitude: 24.125584),
-            VeganFoodPlace(name: "Green Pumpkin", latitude:  56.967520, longitude: 24.105760),
-            VeganFoodPlace(name: "Terapija", latitude: 56.9539906, longitude: 24.13649290000000)
+        let places = [
+            Place(name: "Kozy Eats", lat: 56.951924, lon: 24.125584),
+            Place(name: "Green Pumpkin", lat:  56.967520, lon: 24.105760),
+            Place(name: "Terapija", lat: 56.9539906, lon: 24.13649290000000)
         ]
         
         @State var lat: Double?
         @State var lon: Double?
         
-        @State var coordinateRegion = MKCoordinateRegion(
+        @State var coordRegion = MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 56.948889, longitude: 24.106389),
             span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
         
         var body: some View {
-            Map(coordinateRegion: $coordinateRegion,
-                annotationItems: veganPlacesInRiga) { place in
-            MapMarker(coordinate: place.coordinate, tint: .green)
+            Map(coordinateRegion: $coordRegion,
+                annotationItems: places) { place in
+            MapMarker(coordinate: place.coord, tint: .green)
             }.edgesIgnoringSafeArea(.all)
         }
     }
@@ -75,8 +75,8 @@ struct DetailScreen : View {
 #if DEBUG
 struct DetailScreen_Previews: PreviewProvider {
     static var previews: some View {
-        if let data = API.shared.loadData(from: URLs.get) {
-            if let hotels: [Hotel] = Handler.dataToArray(data) {
+        if let data = API.shared.load(from: URLs.get) {
+            if let hotels: [Hotel] = Handler.codableArray(data) {
                 DetailScreen(hotel: .constant(hotels[0])).previewLayout(.device)
             }
         }
