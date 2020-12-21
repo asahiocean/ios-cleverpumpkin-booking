@@ -9,22 +9,25 @@ public class Hotel: Codable, Identifiable, Hashable {
     var distance: Double
     var suitesAvailability: String
     
+    var details: Details?
     var image: UIImage
     var availableRooms: Int
     
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
+    public func hash(into hasher: inout Hasher) { hasher.combine(id) }
     
     public static func == (lhs: Hotel, rhs: Hotel) -> Bool {
         return lhs.id == rhs.id && lhs.name == rhs.name && lhs.address == rhs.address && lhs.stars == rhs.stars && lhs.distance == rhs.distance && lhs.suitesAvailability == rhs.suitesAvailability && lhs.image == rhs.image && lhs.availableRooms == rhs.availableRooms
     }
     
     enum CodingKeys: String, CodingKey {
-        case id, name, address, stars, distance
+        case id = "id"
+        case name = "name"
+        case address = "address"
+        case stars = "stars"
+        case distance = "distance"
         case suitesAvailability = "suites_availability"
     }
-
+    
     init(id: Int?, name: String?, address: String?, stars: Int?, distance: Double?, suitesAvailability: String?) {
         self.id = id ?? 0
         self.name = name ?? ""

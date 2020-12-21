@@ -38,6 +38,7 @@
 		3D97D58A257151B800DFF4BE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D589257151B800DFF4BE /* Storage.swift */; };
 		3D97D5BC2571D8F000DFF4BE /* DelayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D5BB2571D8F000DFF4BE /* DelayScreen.swift */; };
 		3D97D5C82571DA9600DFF4BE /* updater+delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D5C72571DA9600DFF4BE /* updater+delay.swift */; };
+		3DEE71602590D9880037959F /* HotelDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE715F2590D9880037959F /* HotelDetails.swift */; };
 		3DF60E2B258516E200D7072E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D93A5D0256301B50066616E /* Assets.xcassets */; };
 		3DF60E2F258516E400D7072E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D93A5D0256301B50066616E /* Assets.xcassets */; };
 		3DF60E33258516E400D7072E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D93A5D0256301B50066616E /* Assets.xcassets */; };
@@ -100,6 +101,7 @@
 		3D97D589257151B800DFF4BE /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		3D97D5BB2571D8F000DFF4BE /* DelayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayScreen.swift; sourceTree = "<group>"; };
 		3D97D5C72571DA9600DFF4BE /* updater+delay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "updater+delay.swift"; sourceTree = "<group>"; };
+		3DEE715F2590D9880037959F /* HotelDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetails.swift; sourceTree = "<group>"; };
 		3DFE4AA7256591220042F079 /* PreviewHotel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHotel.swift; sourceTree = "<group>"; };
 		3DFE4AAD2565914F0042F079 /* PreviewHotel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewHotel.xib; sourceTree = "<group>"; };
 		3DFFBAB025736B2B00CB26D1 /* Color_Indigo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color_Indigo.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			children = (
 				3D93A60E25631BAC0066616E /* HotelModel.swift */,
 				3D93A62B2563313F0066616E /* JSONDecoderEncoder.swift */,
+				3DEE715F2590D9880037959F /* HotelDetails.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				3D93A62C2563313F0066616E /* JSONDecoderEncoder.swift in Sources */,
 				3D93A60F25631BAC0066616E /* HotelModel.swift in Sources */,
 				3D97D5BC2571D8F000DFF4BE /* DelayScreen.swift in Sources */,
+				3DEE71602590D9880037959F /* HotelDetails.swift in Sources */,
 				3D97D5402571277B00DFF4BE /* tableViewConfig.swift in Sources */,
 				3D93A5C5256301B50066616E /* AppDelegate.swift in Sources */,
 				3D97D548257127FE00DFF4BE /* navigationBarConfig.swift in Sources */,

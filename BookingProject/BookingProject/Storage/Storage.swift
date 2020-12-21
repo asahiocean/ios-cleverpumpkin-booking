@@ -3,7 +3,8 @@ import Foundation
 final class Storage {
     public static var shared = Storage()
     
-    public let cache = NSCache<NSURL, NSData>()
+    public var cacheData: NSCache<NSURL, NSData> = NSCache<NSURL, NSData>()
+    var userDefaults = UserDefaults.standard
     
     public var hotels: [Hotel]?
     
@@ -15,9 +16,9 @@ final class Storage {
     private(set) public var hotels_sort_rooms_descend: [Hotel]!
         
     final func setdata(_ data: Data) {
-        hotels = Handler.genericData(data)
+        hotels = Handler.codableArray(data)
         updaterGroup.leave()
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global(qos: .utility).async {
             self.hotelsSorter()
         }
     }

@@ -7,10 +7,14 @@ final class HostingCell<Content: View>: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        if aDecoder == .none {
+            fatalError("init(coder:) has not been implemented")
+        } else {
+            super.init(coder: aDecoder)
+        }
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         host.view.frame.size = bounds.size
