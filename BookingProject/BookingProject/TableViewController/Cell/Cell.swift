@@ -51,7 +51,7 @@ struct Cell: View {
                         .scaledToFit()
                         .padding(.trailing, 5)
                         
-                        Text(String(repeating: "⭑", count: hotel.stars) + String(repeating: "✩", count: 5 - hotel.stars))
+                        Text(String(repeating: "★", count: hotel.stars) + String(repeating: "☆", count: 5 - hotel.stars))
                             .lineLimit(1)
                             .font(Font.headline.weight(.bold))
                             .foregroundColor(Color(#colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)))
@@ -66,7 +66,7 @@ struct Cell: View {
 #if DEBUG
 struct Cell_Previews: PreviewProvider {
     static var previews: some View {
-        if let data = API.shared.load(from: URLs.get),
+        if let data = API.shared.get(from: URLs.get),
            let hotels: [Hotel] = Handler.codableArray(data) {
             Group {
                 Cell(hotel: hotels[2])

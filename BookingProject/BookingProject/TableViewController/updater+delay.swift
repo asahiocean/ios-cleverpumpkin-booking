@@ -27,7 +27,7 @@ extension TableViewController {
             NAVBar.sortButton.isHidden = true
         }
         updaterGroup.enter()
-        if let data = API.shared.load(from: URLs.get) {
+        if let data = API.shared.get(from: URLs.get) {
             updaterQueue.async(group: updaterGroup, execute: {
                 self.storage.setdata(data)
             })

@@ -11,10 +11,10 @@ final class Handler: Json {
             guard let hotels = raw as? [Hotel] else { return nil }
             
             for i in hotels.indices {
-                let imageData = API.shared.load(from: URLs.image(i+1))
+                let imageData = API.shared.get(from: URLs.image(i+1))
                 hotels[i].image = imageData != nil ? UIImage(data: imageData!)!.crop(w: 1, h: 1) : UIImage(named: "imagecomingsoon")!
                 
-                if let detailsData = API.shared.load(from: URLs.details(hotels[i].id)),
+                if let detailsData = API.shared.get(from: URLs.details(hotels[i].id)),
                    let jsondict = try JSONSerialization.jsonObject(with: detailsData, options: []) as? NSDictionary {
                     hotels[i].details = .init(from: jsondict)
                 }

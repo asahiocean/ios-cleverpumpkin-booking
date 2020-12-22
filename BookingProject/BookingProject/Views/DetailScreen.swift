@@ -3,71 +3,56 @@ import MapKit
 
 struct DetailScreen : View {
     
-    @Binding public var hotel: Hotel
-    
-    struct Place: Identifiable {
-        var id = UUID()
-        let name: String
-        let lat: Double
-        let lon: Double
+    @State public var hotel: Hotel
         
-        var coord: CLLocationCoordinate2D {
-            CLLocationCoordinate2D(latitude: lat, longitude: lon)
-        }
-    }
-    
-    struct MapViewWithAnnotations: View {
-        let places = [
-            Place(name: "Kozy Eats", lat: 56.951924, lon: 24.125584),
-            Place(name: "Green Pumpkin", lat:  56.967520, lon: 24.105760),
-            Place(name: "Terapija", lat: 56.9539906, lon: 24.13649290000000)
-        ]
-        
-        @State var lat: Double?
-        @State var lon: Double?
-        
-        @State var coordRegion = MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 56.948889, longitude: 24.106389),
-            span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
-        
-        var body: some View {
-            Map(coordinateRegion: $coordRegion,
-                annotationItems: places) { place in
-            MapMarker(coordinate: place.coord, tint: .green)
-            }.edgesIgnoringSafeArea(.all)
-        }
-    }
-    
     var body: some View {
-        VStack(alignment: .leading, spacing: 10, content: {
+        VStack(alignment: .center, spacing: nil, content: {
             Image(uiImage: hotel.image)
                 .resizable()
-                .scaledToFit()
-                .cornerRadius(15.0, antialiased: true)
-            HStack(spacing: 10, content: {
-                Text("Rating:")
-                Text(String(repeating: "⭑", count: hotel.stars) + String(repeating: "✩", count: 5 - hotel.stars))
+                .padding(.top, 5)
+                .cornerRadius(15.0)
+                .aspectRatio(1.5, contentMode: .fit)
+            
+            if let lat = hotel.details?.lat,
+               let lon = hotel.details?.lon {
+                MKView(center: CLLocationCoordinate2D(latitude: lat, longitude: lon), title: hotel.name, address: hotel.address)
+                    .cornerRadius(15.0)
+                    .aspectRatio(2, contentMode: .fit)
+            }
+            HStack(content: {
+                Text("Available rooms: \(hotel.availableRooms)")
+                    .padding(10)
+                    .font(Font.title3.weight(.regular))
+                Spacer()
+                let stars = hotel.stars
+                Text(String(repeating: "★", count: stars) + String(repeating: "☆", count: 5 - stars))
                     .lineLimit(1)
-                    .font(Font.title2)
                     .foregroundColor(Color(#colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)))
-                    .padding(.bottom, 5)
-                    .padding(.trailing, 10)
-            })
-            HStack(spacing: 10, content: {
-                Text("Available rooms:")
-                Text("\(hotel.availableRooms)")
-                    .font(Font.body.weight(.semibold))
-            })
-            HStack(spacing: 10, content: {
-                Text("Address:")
-                Text(hotel.address)
-                    .lineLimit(1)
-                    .font(Font.body.weight(.semibold))
-            })
-            //MapViewWithAnnotations(lat: hotel.lat, lon: hotel.lat)
+                    .font(Font.title3.weight(.regular))
+            }).padding(.horizontal, 5)
+            Spacer()
+            Text("Discount when booking through the app")
+                .font(Font.callout.weight(.light))
+            
+            Button(action: {
+                // POST REQUEST
+                var body: [String:Any] = [:]
+                body.updateValue("booking", forKey: hotel.name)
+                API.shared.post(to: URLs.post, body: body)
+            }) {
+                // Label Button
+                Text("Booking")
+                    .font(.largeTitle)
+                    .foregroundColor(Color.white)
+                    .frame(maxWidth: .infinity, alignment: .center)
+            }
+            .padding()
+            .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)), Color(#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1))]), startPoint: .leading, endPoint: .trailing))
+            .cornerRadius(50.0)
+            .scaleEffect(0.8)
             Spacer()
         })
-        .scaleEffect(0.975)
+        .padding([.horizontal,.bottom], 10)
         .navigationBarTitle(hotel.name, displayMode: .large)
     }
 }
@@ -75,9 +60,15 @@ struct DetailScreen : View {
 #if DEBUG
 struct DetailScreen_Previews: PreviewProvider {
     static var previews: some View {
-        if let data = API.shared.load(from: URLs.get) {
+        if let data = API.shared.get(from: URLs.get) {
             if let hotels: [Hotel] = Handler.codableArray(data) {
-                DetailScreen(hotel: .constant(hotels[0])).previewLayout(.device)
+                DetailScreen(hotel: hotels[6])
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+
+                DetailScreen(hotel: hotels[6])
+                .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
+                .previewDisplayName("iPhone 12 Pro Max")
             }
         }
     }

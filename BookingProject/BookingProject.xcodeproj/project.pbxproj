@@ -14,6 +14,8 @@
 		3D728A0125693C280001EF28 /* contextMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D728A0025693C280001EF28 /* contextMenuConfig.swift */; };
 		3D728A0D25694EB20001EF28 /* NAVBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D728A0C25694EB20001EF28 /* NAVBar.swift */; };
 		3D728A1425694F270001EF28 /* largeTitleHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D728A1325694F270001EF28 /* largeTitleHeight.swift */; };
+		3D738D4425921B74004D7214 /* MKPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D738D4325921B74004D7214 /* MKPin.swift */; };
+		3D738D4D25921BC0004D7214 /* MKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D738D4C25921BC0004D7214 /* MKView.swift */; };
 		3D792909258C8412006CE8B2 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D792908258C8412006CE8B2 /* CustomCell.swift */; };
 		3D79290E258C8476006CE8B2 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D79290D258C8476006CE8B2 /* CustomCell.xib */; };
 		3D9063812564372800D7A81F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9063802564372800D7A81F /* TableViewController.swift */; };
@@ -72,6 +74,8 @@
 		3D728A0025693C280001EF28 /* contextMenuConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contextMenuConfig.swift; sourceTree = "<group>"; };
 		3D728A0C25694EB20001EF28 /* NAVBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NAVBar.swift; sourceTree = "<group>"; };
 		3D728A1325694F270001EF28 /* largeTitleHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = largeTitleHeight.swift; sourceTree = "<group>"; };
+		3D738D4325921B74004D7214 /* MKPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPin.swift; sourceTree = "<group>"; };
+		3D738D4C25921BC0004D7214 /* MKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKView.swift; sourceTree = "<group>"; };
 		3D792908258C8412006CE8B2 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		3D79290D258C8476006CE8B2 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		3D9063802564372800D7A81F /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 		3D728A1125694F170001EF28 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3D738D4225921B6C004D7214 /* MapKit */,
 				3D33B07C2586A9560072F2A3 /* Extensions */,
 				3D50B274258A829D00EFC947 /* ConfigHelpers.swift */,
 			);
@@ -191,6 +196,22 @@
 				3D728A1325694F270001EF28 /* largeTitleHeight.swift */,
 			);
 			path = UINavigationBar;
+			sourceTree = "<group>";
+		};
+		3D738D4225921B6C004D7214 /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				3D738D4325921B74004D7214 /* MKPin.swift */,
+			);
+			path = MapKit;
+			sourceTree = "<group>";
+		};
+		3D738D4B25921BB3004D7214 /* MKView */ = {
+			isa = PBXGroup;
+			children = (
+				3D738D4C25921BC0004D7214 /* MKView.swift */,
+			);
+			path = MKView;
 			sourceTree = "<group>";
 		};
 		3D792907258C83FE006CE8B2 /* CustomCell */ = {
@@ -331,6 +352,7 @@
 		3D93A6672563C7F70066616E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3D738D4B25921BB3004D7214 /* MKView */,
 				3D9063B425643CE100D7A81F /* DetailScreen.swift */,
 				3D97D5BB2571D8F000DFF4BE /* DelayScreen.swift */,
 			);
@@ -425,7 +447,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					3D93A5C0256301B50066616E = {
 						CreatedOnToolsVersion = 12.2;
@@ -509,6 +531,7 @@
 				3D93A64E2563C4C70066616E /* Handler.swift in Sources */,
 				3D728A0D25694EB20001EF28 /* NAVBar.swift in Sources */,
 				3D97D5C82571DA9600DFF4BE /* updater+delay.swift in Sources */,
+				3D738D4D25921BC0004D7214 /* MKView.swift in Sources */,
 				3D792909258C8412006CE8B2 /* CustomCell.swift in Sources */,
 				3DFFBAB125736B2B00CB26D1 /* Color_Indigo.swift in Sources */,
 				3D93A632256331650066616E /* extensionCodableTask.swift in Sources */,
@@ -521,6 +544,7 @@
 				3D93A627256330DB0066616E /* API.swift in Sources */,
 				3D9063812564372800D7A81F /* TableViewController.swift in Sources */,
 				3D9063B525643CE100D7A81F /* DetailScreen.swift in Sources */,
+				3D738D4425921B74004D7214 /* MKPin.swift in Sources */,
 				3D50B275258A829D00EFC947 /* ConfigHelpers.swift in Sources */,
 				3D93A5CF256301B50066616E /* BookingProject.xcdatamodeld in Sources */,
 			);
@@ -628,7 +652,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -681,8 +705,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
