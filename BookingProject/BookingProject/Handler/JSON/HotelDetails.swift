@@ -44,14 +44,14 @@ public struct Details: Codable, Identifiable, Hashable {
 
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
-        name = try values.decodeIfPresent(String.self, forKey: .name)
-        address = try values.decodeIfPresent(String.self, forKey: .address)
-        stars = try values.decodeIfPresent(Int.self, forKey: .stars)
-        distance = try values.decodeIfPresent(Double.self, forKey: .distance)
-        image = try values.decodeIfPresent(String.self, forKey: .image)
-        suitesAvailability = try values.decodeIfPresent(String.self, forKey: .suitesAvailability)
-        lat = try values.decodeIfPresent(Double.self, forKey: .lat)
-        lon = try values.decodeIfPresent(Double.self, forKey: .lon)
+        id = try values.decode(Int.self, forKey: .id)
+        name = try values.decode(String.self, forKey: .name)
+        address = try values.decode(String.self, forKey: .address)
+        stars = try values.decode(Int.self, forKey: .stars)
+        distance = try values.decode(Double.self, forKey: .distance)
+        image = try values.decode(String.self, forKey: .image)
+        suitesAvailability = try values.decode(String.self, forKey: .suitesAvailability)
+        lat = try values.decode(Double.self, forKey: .lat)
+        lon = try values.decode(Double.self, forKey: .lon)
     }
 }

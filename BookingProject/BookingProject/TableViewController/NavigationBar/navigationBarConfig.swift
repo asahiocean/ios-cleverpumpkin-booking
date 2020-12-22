@@ -53,8 +53,6 @@ extension TableViewController {
     }
     
     internal func navigationBarConfig() {
-        navigationItem.title = "Hotels"
-        
         guard let navigationController = navigationController else { fatalError() }
         navigationController.navigationItem.largeTitleDisplayMode = .always
         navigationController.navigationBar.prefersLargeTitles = true

@@ -1,38 +1,37 @@
 import Foundation
-import Dispatch
 
 final class API {
     
     static let shared = API()
     private let storage = Storage.shared
-        
-    func load(from urlString: String) -> Data? {
-        guard let url = URL(string: urlString) else { fatalError() }
-        
+    
+    final public func load(from urlString: String) -> Data? {
+        let url = URL(string: urlString)!
         var data: Data?
         
-        let semaphore = DispatchSemaphore(value: 0)
-        let QoS = DispatchQoS(qosClass: .userInitiated, relativePriority: 100)
-        let queue = DispatchQueue(label: "com.api.loadData", qos: QoS, attributes: .concurrent)
-        
-        queue.async { [self] in
-            if let cacheddata = UserDefaults.standard.data(forKey: url.absoluteString) {
-                data = cacheddata
-                semaphore.signal()
+        let operation = BlockOperation(block: {
+            if let cachedData = UserDefaults.standard.data(forKey: url.absoluteString) {
+                data = cachedData
             } else {
                 do {
-                    let loaddata = try Data(contentsOf: url, options: .mappedRead) // [.uncached, .uncachedRead, .mappedRead]
-                    storage.userDefaults.set(loaddata, forKey: url.absoluteString)
-                    data = loaddata
-                    semaphore.signal()
+                    data = try Data(contentsOf: url, options: .mappedRead)
                 } catch {
-                    data = nil
-                    semaphore.signal()
+                    print(error.localizedDescription)
                 }
             }
+        })
+        operation.queuePriority = .veryHigh
+        operation.qualityOfService = .userInitiated
+        
+        let queue = OperationQueue()
+        queue.qualityOfService = .userInitiated
+
+        queue.addBarrierBlock { [self] in
+            guard let safeData = data else { return }
+            storage.userDefaults.set(safeData, forKey: url.absoluteString);
+            storage.userDefaults.synchronize();
         }
-        semaphore.wait()
-        storage.userDefaults.synchronize()
+        queue.addOperations([operation], waitUntilFinished: true)
         return data
     }
     
