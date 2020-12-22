@@ -17,7 +17,6 @@ final class Handler: Json {
                 if let detailsData = API.shared.load(from: URLs.details(hotels[i].id)),
                    let jsondict = try JSONSerialization.jsonObject(with: detailsData, options: []) as? NSDictionary {
                     hotels[i].details = .init(from: jsondict)
-                    print(i, URLs.details(hotels[i].id))
                 }
             }
             return hotels as? [T]

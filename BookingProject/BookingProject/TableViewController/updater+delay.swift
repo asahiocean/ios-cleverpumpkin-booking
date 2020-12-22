@@ -22,20 +22,19 @@ extension TableViewController {
     }
     
     internal func updaterHotels() {
+        DispatchQueue.main.async {
+            self.title = "Looking for hotels..."
+            NAVBar.sortButton.isHidden = true
+        }
         updaterGroup.enter()
         if let data = API.shared.load(from: URLs.get) {
-            DispatchQueue.main.async {
-                self.title = "Looking for hotels..."
-                Self.loadview.isHidden = false
-                NAVBar.sortButton.isHidden = true
-            }
             updaterQueue.async(group: updaterGroup, execute: {
                 self.storage.setdata(data)
             })
             updaterGroup.notify(queue: .main, execute: {
-                self.tableView.reloadData()
                 self.title = "Hotels"
-                Self.loadview.isHidden = true
+                self.tableView.reloadData()
+                Self.loadview.removeFromSuperview()
                 NAVBar.sortButton.isHidden = false
             })
         }

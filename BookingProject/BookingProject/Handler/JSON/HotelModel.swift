@@ -2,32 +2,19 @@ import Foundation
 import UIKit.UIImage
 
 public class Hotel: Codable, Identifiable, Hashable {
+    // JSON
     public var id: Int
     var name: String
     var address: String
     var stars: Int
     var distance: Double
     var suitesAvailability: String
-    
-    var details: Details?
-    var image: UIImage
     var availableRooms: Int
     
-    public func hash(into hasher: inout Hasher) { hasher.combine(id) }
-    
-    public static func == (lhs: Hotel, rhs: Hotel) -> Bool {
-        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.address == rhs.address && lhs.stars == rhs.stars && lhs.distance == rhs.distance && lhs.suitesAvailability == rhs.suitesAvailability && lhs.image == rhs.image && lhs.availableRooms == rhs.availableRooms
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case address = "address"
-        case stars = "stars"
-        case distance = "distance"
-        case suitesAvailability = "suites_availability"
-    }
-    
+    // Helpers
+    var details: Details?
+    var image: UIImage
+        
     init(id: Int?, name: String?, address: String?, stars: Int?, distance: Double?, suitesAvailability: String?) {
         self.id = id ?? 0
         self.name = name ?? ""
@@ -39,7 +26,16 @@ public class Hotel: Codable, Identifiable, Hashable {
         self.image = .init()
         self.availableRooms = suitesAvailability?.split(separator: ":").compactMap{Int($0)}.count ?? 0
     }
-        
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        case address = "address"
+        case stars = "stars"
+        case distance = "distance"
+        case suitesAvailability = "suites_availability"
+    }
+    
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
@@ -52,14 +48,14 @@ public class Hotel: Codable, Identifiable, Hashable {
         image = .init()
         availableRooms = try values.decode(String.self, forKey: .suitesAvailability).split(separator: ":").compactMap{Int($0)}.count
     }
+}
 
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
-        try container.encode(name, forKey: .name)
-        try container.encode(address, forKey: .address)
-        try container.encode(stars, forKey: .stars)
-        try container.encode(distance, forKey: .distance)
-        try container.encode(suitesAvailability, forKey: .suitesAvailability)
+extension Hotel {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    public static func == (lhs: Hotel, rhs: Hotel) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.address == rhs.address && lhs.stars == rhs.stars && lhs.distance == rhs.distance && lhs.suitesAvailability == rhs.suitesAvailability && lhs.image == rhs.image && lhs.availableRooms == rhs.availableRooms
     }
 }
