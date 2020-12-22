@@ -22,8 +22,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hotel Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ke-PV-Skw">
-                        <rect key="frame" x="99" y="5" width="102" height="24"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                        <rect key="frame" x="99" y="0.0" width="105.5" height="24"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -66,7 +66,7 @@
                     <constraint firstItem="l3X-H0-vHY" firstAttribute="leading" secondItem="oxT-r6-vTP" secondAttribute="trailing" constant="15" id="iPA-sE-Bqq"/>
                     <constraint firstItem="PM0-BK-8Gd" firstAttribute="bottom" secondItem="L4o-3g-v2z" secondAttribute="bottom" id="j14-OC-HP7"/>
                     <constraint firstItem="L4o-3g-v2z" firstAttribute="top" secondItem="det-OV-ec1" secondAttribute="top" constant="5" id="jES-p8-NcQ"/>
-                    <constraint firstItem="9ke-PV-Skw" firstAttribute="top" secondItem="L4o-3g-v2z" secondAttribute="top" id="mQK-HE-GRn"/>
+                    <constraint firstItem="9ke-PV-Skw" firstAttribute="top" secondItem="L4o-3g-v2z" secondAttribute="top" constant="-5" id="mQK-HE-GRn"/>
                     <constraint firstItem="L4o-3g-v2z" firstAttribute="leading" secondItem="det-OV-ec1" secondAttribute="leading" constant="5" id="wwB-ia-t56"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="h9v-U2-m7z" secondAttribute="trailing" constant="1" id="xKr-5O-JCL"/>
                 </constraints>
