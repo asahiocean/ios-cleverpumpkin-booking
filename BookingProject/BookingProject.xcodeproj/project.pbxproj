@@ -33,7 +33,6 @@
 		3D93A627256330DB0066616E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A626256330DB0066616E /* API.swift */; };
 		3D93A62C2563313F0066616E /* JSONDecoderEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A62B2563313F0066616E /* JSONDecoderEncoder.swift */; };
 		3D93A632256331650066616E /* extensionCodableTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A631256331650066616E /* extensionCodableTask.swift */; };
-		3D93A63B256331960066616E /* CodableTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A63A256331960066616E /* CodableTask.swift */; };
 		3D93A64E2563C4C70066616E /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A64D2563C4C70066616E /* Handler.swift */; };
 		3D97D5402571277B00DFF4BE /* tableViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D53F2571277B00DFF4BE /* tableViewConfig.swift */; };
 		3D97D548257127FE00DFF4BE /* navigationBarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D547257127FE00DFF4BE /* navigationBarConfig.swift */; };
@@ -98,7 +97,6 @@
 		3D93A626256330DB0066616E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		3D93A62B2563313F0066616E /* JSONDecoderEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderEncoder.swift; sourceTree = "<group>"; };
 		3D93A631256331650066616E /* extensionCodableTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionCodableTask.swift; sourceTree = "<group>"; };
-		3D93A63A256331960066616E /* CodableTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTask.swift; sourceTree = "<group>"; };
 		3D93A64D2563C4C70066616E /* Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
 		3D97D53F2571277B00DFF4BE /* tableViewConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewConfig.swift; sourceTree = "<group>"; };
 		3D97D547257127FE00DFF4BE /* navigationBarConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationBarConfig.swift; sourceTree = "<group>"; };
@@ -183,9 +181,9 @@
 		3D728A1125694F170001EF28 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				3D738D4225921B6C004D7214 /* MapKit */,
-				3D33B07C2586A9560072F2A3 /* Extensions */,
 				3D50B274258A829D00EFC947 /* ConfigHelpers.swift */,
+				3D33B07C2586A9560072F2A3 /* Extensions */,
+				3D738D4225921B6C004D7214 /* MapKit */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -319,7 +317,6 @@
 			children = (
 				3D93A626256330DB0066616E /* API.swift */,
 				3D93A61E256330C00066616E /* URLs.swift */,
-				3D93A639256331860066616E /* Protocols */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -330,14 +327,6 @@
 				3D93A631256331650066616E /* extensionCodableTask.swift */,
 			);
 			path = URLSession;
-			sourceTree = "<group>";
-		};
-		3D93A639256331860066616E /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				3D93A63A256331960066616E /* CodableTask.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		3D93A64C2563C4BF0066616E /* Handler */ = {
@@ -525,7 +514,6 @@
 				3D93A5C5256301B50066616E /* AppDelegate.swift in Sources */,
 				3D97D548257127FE00DFF4BE /* navigationBarConfig.swift in Sources */,
 				3D728A0125693C280001EF28 /* contextMenuConfig.swift in Sources */,
-				3D93A63B256331960066616E /* CodableTask.swift in Sources */,
 				3D93A61F256330C00066616E /* URLs.swift in Sources */,
 				3D33B09725877B900072F2A3 /* Cell.swift in Sources */,
 				3D93A64E2563C4C70066616E /* Handler.swift in Sources */,
@@ -716,18 +704,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = KXDT64LHVB;
 				INFOPLIST_FILE = BookingProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Sergey-Fedotov.BookingProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -737,18 +726,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = KXDT64LHVB;
 				INFOPLIST_FILE = BookingProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Sergey-Fedotov.BookingProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

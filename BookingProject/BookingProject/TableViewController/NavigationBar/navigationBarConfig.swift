@@ -75,20 +75,20 @@ extension TableViewController {
     
     @objc func rightButtonTapped(_ action: UIAction) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        //MARK: -- By available rooms
+        //MARK: By available rooms
         let availableRooms = UIAlertAction(title: "By available rooms", style: .default) { [self] (action) -> Void in
             availableRooms_ascend()
         }
-        //MARK: -- By distance
+        //MARK: By distance
         let distance = UIAlertAction(title: "By distance", style: .default) { [self] (action) -> Void in
             distance_ascend()
             
         }
-        //MARK: -- By default
+        //MARK: By default
         let _default = UIAlertAction(title: "By default", style: .default) { [self] (action) -> Void in
             defaultSort()
         }
-        //MARK: -- Cancel
+        //MARK: Cancel
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
             print("Cancel")
         }

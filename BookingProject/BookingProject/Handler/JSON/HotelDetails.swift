@@ -23,13 +23,7 @@ public struct Details: Codable, Identifiable, Hashable {
         lat = dict["lat"] as? Double
         lon = dict["lon"] as? Double
     }
-
-    public func hash(into hasher: inout Hasher) { hasher.combine(id) }
-
-    public static func == (lhs: Details, rhs: Details) -> Bool {
-        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.address == rhs.address && lhs.stars == rhs.stars && lhs.distance == rhs.distance && lhs.image == rhs.image && lhs.suitesAvailability == rhs.suitesAvailability && lhs.lat == rhs.lat && lhs.lon == rhs.lon
-    }
-        
+    
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case name = "name"
@@ -53,5 +47,15 @@ public struct Details: Codable, Identifiable, Hashable {
         suitesAvailability = try values.decode(String.self, forKey: .suitesAvailability)
         lat = try values.decode(Double.self, forKey: .lat)
         lon = try values.decode(Double.self, forKey: .lon)
+    }
+}
+
+extension Details {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    public static func == (lhs: Details, rhs: Details) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.address == rhs.address && lhs.stars == rhs.stars && lhs.distance == rhs.distance && lhs.image == rhs.image && lhs.suitesAvailability == rhs.suitesAvailability && lhs.lat == rhs.lat && lhs.lon == rhs.lon
     }
 }

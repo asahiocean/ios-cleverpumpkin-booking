@@ -1,4 +1,5 @@
 import Foundation
+import Dispatch
 
 struct API {
     
@@ -9,29 +10,36 @@ struct API {
         let url = URL(string: urlString)!
         var data: Data?
         
-        let operation = BlockOperation(block: {
-            if let cachedData = UserDefaults.standard.data(forKey: url.absoluteString) {
-                data = cachedData
-            } else {
-                do {
-                    let newdata = try Data(contentsOf: url, options: [.uncached,.uncachedRead,.mappedRead])
-                    defer {
-                        storage.userDefaults.set(newdata, forKey: url.absoluteString);
-                        storage.userDefaults.synchronize();
-                    }
-                    data = newdata
-                } catch {
-                    data = nil
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        if let cachedData = UserDefaults.standard.data(forKey: url.absoluteString) {
+            data = cachedData
+            semaphore.signal()
+        } else {
+            do {
+                let newdata = try Data(contentsOf: url, options: .mappedRead)
+                defer {
+                    storage.userDefaults.set(newdata, forKey: url.absoluteString);
+                    storage.userDefaults.synchronize();
                 }
+                data = newdata
+                semaphore.signal()
+            } catch {
+                data = nil
+                semaphore.signal()
             }
-        })
-        operation.queuePriority = .veryHigh
-        operation.qualityOfService = .userInitiated
+        }
         
-        let queue = OperationQueue()
-        queue.qualityOfService = .userInitiated
-        
-        queue.addOperations([operation], waitUntilFinished: true)
+//        let operation = BlockOperation(block: { })
+//        operation.queuePriority = .veryHigh
+//        operation.qualityOfService = .userInitiated
+//
+//        let queue = OperationQueue()
+//        queue.qualityOfService = .userInitiated
+//
+//        queue.addOperations([operation], waitUntilFinished: true)
+
+        semaphore.wait()
         return data
     }
     
@@ -40,22 +48,18 @@ struct API {
         let session = URLSession.shared
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+
         do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [.prettyPrinted])
         } catch let error {
             print(error.localizedDescription)
         }
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            guard error == nil, let data = data else { return }            
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    print(json)
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
+        
+        let task = session.dataTask(with: request, completionHandler: { (data,response,error) in
+            guard error == nil, let data = data, let answer = String(data: data, encoding: .utf8) else { return }
+            print(answer)
         })
         task.resume()
 

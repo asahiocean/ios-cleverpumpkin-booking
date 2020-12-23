@@ -1,12 +1,12 @@
 import Foundation
 import MapKit
 
-final class MKPin: NSObject, MKAnnotation {
-    var coordinate: CLLocationCoordinate2D
-    var title: String?
-    var subtitle: String?
-
-    init(_ coordinate: CLLocationCoordinate2D, title: String, subtitle: String) {
+final public class MKPin: NSObject, MKAnnotation {
+    public var coordinate: CLLocationCoordinate2D
+    public var title: String?
+    public var subtitle: String?
+    
+    public init(_ coordinate: CLLocationCoordinate2D, title: String, subtitle: String) {
         self.coordinate = coordinate
         self.title = title
         self.subtitle = subtitle

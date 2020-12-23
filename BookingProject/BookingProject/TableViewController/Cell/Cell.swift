@@ -1,11 +1,10 @@
 import SwiftUI
 
-struct Cell: View {
+struct CellView: View {
     
     @State public var hotel: Hotel
         
     public var body: some View {
-        // alignment: .center, spacing: 5.0, content: {
         HStack(alignment: .center, spacing: 0.0, content: {
             if let uiImage = hotel.image {
                 ZStack(alignment: .topLeading, content: {
@@ -19,8 +18,7 @@ struct Cell: View {
                         .clipped(antialiased: true)
                 })
             }
-            // alignment: .leading, spacing: 5.0, content: {
-            VStack(spacing: 0, content: {
+            VStack(alignment: .leading, spacing: 0.0, content: {
                 Text(hotel.name)
                     .font(Font.title2.weight(.semibold))
                     .fontWeight(.regular)
@@ -64,15 +62,15 @@ struct Cell: View {
     }
 }
 #if DEBUG
-struct Cell_Previews: PreviewProvider {
+struct CellView_Previews: PreviewProvider {
     static var previews: some View {
         if let data = API.shared.get(from: URLs.get),
            let hotels: [Hotel] = Handler.codableArray(data) {
             Group {
-                Cell(hotel: hotels[2])
+                CellView(hotel: hotels[2])
                     .previewDevice("iPhone 8")
                     .previewDisplayName("iPhone 8")
-                Cell(hotel: hotels[0])
+                CellView(hotel: hotels[0])
                     .previewDevice("iPhone 12 Pro Max")
                     .previewDisplayName("iPhone 12 PM Dark Mode")
                     .background(Color(.systemBackground))

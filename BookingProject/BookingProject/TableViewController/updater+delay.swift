@@ -5,8 +5,7 @@ extension TableViewController {
     static fileprivate var loadview: UIView = {
         var view =  UIView()
         view.clipsToBounds = true
-        let screen = DelayScreen()
-        let rootView = UIHostingController(rootView: screen)
+        let rootView = UIHostingController(rootView: DelayScreen())
         if let rootView = rootView.view { view = rootView }
         return view
     }()
@@ -32,10 +31,10 @@ extension TableViewController {
                 self.storage.setdata(data)
             })
             updaterGroup.notify(queue: .main, execute: {
-                self.title = "Hotels"
                 self.tableView.reloadData()
                 Self.loadview.removeFromSuperview()
                 NAVBar.sortButton.isHidden = false
+                self.title = "Hotels"
             })
         }
     }

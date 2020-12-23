@@ -1,8 +1,7 @@
 import Foundation
 import UIKit.UIImage
 
-public class Hotel: Codable, Identifiable, Hashable {
-    // JSON
+class Hotel: Codable, Identifiable, Hashable {
     public var id: Int
     var name: String
     var address: String
@@ -11,7 +10,6 @@ public class Hotel: Codable, Identifiable, Hashable {
     var suitesAvailability: String
     var availableRooms: Int
     
-    // Helpers
     var details: Details?
     var image: UIImage
         
