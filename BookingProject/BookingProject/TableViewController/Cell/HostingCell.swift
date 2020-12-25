@@ -7,12 +7,9 @@ final class HostingCell<Content: View>: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        if aDecoder == .none {
-            fatalError("init(coder:) has not been implemented")
-        } else {
-            super.init(coder: aDecoder)
-        }
+    required init?(coder decoder: NSCoder) {
+        guard decoder == .none else { fatalError("init(coder:) has not been implemented") }
+        super.init(coder: decoder)
     }
 
     override func layoutSubviews() {

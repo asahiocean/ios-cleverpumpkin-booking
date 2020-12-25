@@ -6,8 +6,7 @@ public let updaterGroup = DispatchGroup()
 
 class TableViewController: UITableViewController {
     
-    var interactionMap: UIContextMenuInteraction!
-    let storage = Storage.shared
+    public let storage = Storage.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +36,11 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "HostingCell<CellView>", for: indexPath) as! HostingCell<Cell>
+        //let hostcell = tableView.dequeueReusableCell(withIdentifier: "HostingCell<CellView>", for: indexPath) as! HostingCell<Cell>
+        //if let hotel = storage.hotels?[indexPath.row] { hostcell.set(rootView: Cell(hotel: hotel)) }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.id, for: indexPath) as! CustomCell
-        if let hotel = storage.hotels?[indexPath.row] {
-            cell.set(hotel: hotel)
-        }
+        if let hotel = storage.hotels?[indexPath.row] { cell.set(hotel: hotel) }
         return cell
     }
         
