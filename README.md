@@ -1,5 +1,5 @@
 # Booking
-Hotel booking test application
+Тестовое задание | Hotel booking test application
 
 #### ✅ Framework: UIKit + SwiftUI
 #### ✅ Cache: UserDefaults
