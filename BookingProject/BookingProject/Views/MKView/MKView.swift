@@ -1,4 +1,3 @@
-import Foundation
 import SwiftUI
 import MapKit
 
@@ -16,6 +15,6 @@ struct MKView: UIViewRepresentable {
         mapView.setRegion(MKCoordinateRegion(center: center, latitudinalMeters: 300, longitudinalMeters: 300), animated: true)
         return mapView
     }
-
+    
     func updateUIView(_ uiView: MKMapView, context: Context) { }
 }
