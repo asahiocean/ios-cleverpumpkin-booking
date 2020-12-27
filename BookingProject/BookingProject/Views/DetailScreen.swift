@@ -4,7 +4,7 @@ import MapKit
 struct DetailScreen : View {
     
     @State public var hotel: Hotel
-        
+    
     var body: some View {
         VStack(alignment: .center, spacing: nil, content: {
             Image(uiImage: hotel.image)
@@ -63,12 +63,12 @@ struct DetailScreen_Previews: PreviewProvider {
         if let data = API.shared.get(from: URLs.get) {
             if let hotels: [Hotel] = Handler.codableArray(data) {
                 DetailScreen(hotel: hotels[6])
-                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
-                .previewDisplayName("iPhone 8")
-
+                    .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                    .previewDisplayName("iPhone 8")
+                
                 DetailScreen(hotel: hotels[6])
-                .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
-                .previewDisplayName("iPhone 12 Pro Max")
+                    .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
+                    .previewDisplayName("iPhone 12 Pro Max")
             }
         }
     }

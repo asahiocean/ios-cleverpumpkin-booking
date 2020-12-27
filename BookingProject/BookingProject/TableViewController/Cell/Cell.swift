@@ -3,7 +3,7 @@ import SwiftUI
 struct CellView: View {
     
     @State public var hotel: Hotel
-        
+    
     public var body: some View {
         HStack(alignment: .center, spacing: 0.0, content: {
             if let uiImage = hotel.image {
@@ -30,7 +30,7 @@ struct CellView: View {
                     .fontWeight(.regular)
                     .lineLimit(1)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-
+                
                 HStack(alignment: .center, spacing: 10, content: {
                     let distance = String(Int(hotel.distance))
                     Text(distance + "m. from city center")
@@ -39,7 +39,7 @@ struct CellView: View {
                     Spacer()
                     HStack(alignment: .center, spacing: 5, content: {
                         ZStack {
-                           Circle()
+                            Circle()
                                 .foregroundColor(Color(#colorLiteral(red: 0.5326635242, green: 0.8077927232, blue: 0.9814575315, alpha: 0.7)))
                                 .scaleEffect(1.75)
                             Text("\(hotel.availableRooms)")
@@ -78,7 +78,7 @@ struct CellView_Previews: PreviewProvider {
             }
             .edgesIgnoringSafeArea(.all)
             .previewLayout(.fixed(width: TableConfig.width,
-                                   height: TableConfig.rowHeight))
+                                  height: TableConfig.rowHeight))
         }
     }
 }

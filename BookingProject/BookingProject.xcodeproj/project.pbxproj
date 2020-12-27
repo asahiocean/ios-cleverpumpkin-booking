@@ -224,12 +224,12 @@
 		3D9063872564377E00D7A81F /* TableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3D728A08256941090001EF28 /* NavigationBar */,
-				3D7289FF25693C120001EF28 /* ContextMenu */,
-				3D90639C2564384800D7A81F /* Cell */,
-				3D9063802564372800D7A81F /* TableViewController.swift */,
 				3D97D53F2571277B00DFF4BE /* tableViewConfig.swift */,
+				3D9063802564372800D7A81F /* TableViewController.swift */,
 				3D97D5C72571DA9600DFF4BE /* updater+delay.swift */,
+				3D90639C2564384800D7A81F /* Cell */,
+				3D7289FF25693C120001EF28 /* ContextMenu */,
+				3D728A08256941090001EF28 /* NavigationBar */,
 			);
 			path = TableViewController;
 			sourceTree = "<group>";
