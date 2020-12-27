@@ -12,7 +12,7 @@ class Hotel: Codable, Identifiable, Hashable {
     
     var details: Details?
     var image: UIImage
-        
+    
     init(id: Int?, name: String?, address: String?, stars: Int?, distance: Double?, suitesAvailability: String?) {
         self.id = id ?? 0
         self.name = name ?? ""
