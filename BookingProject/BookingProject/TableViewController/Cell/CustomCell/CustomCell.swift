@@ -13,9 +13,9 @@ class CustomCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-         imageview.layer.cornerRadius = 10
+        imageview.layer.cornerRadius = 10
     }
-
+    
     func set(hotel: Hotel) {
         self.title.text = hotel.name
         address.text = hotel.address
