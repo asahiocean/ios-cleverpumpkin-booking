@@ -7,7 +7,7 @@ public let updaterGroup = DispatchGroup()
 class TableViewController: UITableViewController {
     
     public let storage = Storage.shared
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadview()
@@ -16,7 +16,7 @@ class TableViewController: UITableViewController {
         // tableView.register(HostingCell<Cell>.self, forCellReuseIdentifier: "HostingCell<CellView>")
         tableViewConfig()
     }
-        
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.contentInset = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
@@ -43,7 +43,7 @@ class TableViewController: UITableViewController {
         if let hotel = storage.hotels?[indexPath.row] { cell.set(hotel: hotel) }
         return cell
     }
-        
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let navcon = navigationController else { return }
         if let hotel = storage.hotels?[indexPath.row] {
