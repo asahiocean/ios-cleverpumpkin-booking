@@ -2,10 +2,10 @@ import Foundation
 import Dispatch
 
 final class Storage {
-
+    
     public static var shared = Storage()
     private init() {}
-
+    
     public var userDefaults = UserDefaults.standard
     
     public var hotels: [Hotel]?
@@ -14,7 +14,7 @@ final class Storage {
     private(set) public var hotels_sort_dist_descend: [Hotel]!
     private(set) public var hotels_sort_rooms_ascend: [Hotel]!
     private(set) public var hotels_sort_rooms_descend: [Hotel]!
-        
+    
     final func setdata(_ data: Data) {
         hotels = Handler.codableArray(data)
         updaterGroup.leave()
