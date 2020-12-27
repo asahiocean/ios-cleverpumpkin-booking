@@ -30,15 +30,15 @@ struct API {
             }
         }
         
-//        let operation = BlockOperation(block: { })
-//        operation.queuePriority = .veryHigh
-//        operation.qualityOfService = .userInitiated
-//
-//        let queue = OperationQueue()
-//        queue.qualityOfService = .userInitiated
-//
-//        queue.addOperations([operation], waitUntilFinished: true)
-
+        //        let operation = BlockOperation(block: { })
+        //        operation.queuePriority = .veryHigh
+        //        operation.qualityOfService = .userInitiated
+        //
+        //        let queue = OperationQueue()
+        //        queue.qualityOfService = .userInitiated
+        //
+        //        queue.addOperations([operation], waitUntilFinished: true)
+        
         semaphore.wait()
         return data
     }
@@ -49,7 +49,7 @@ struct API {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-
+        
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [.prettyPrinted])
         } catch let error {

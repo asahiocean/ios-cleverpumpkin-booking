@@ -1,7 +1,7 @@
 import Foundation
 
 public struct Details: Codable, Identifiable, Hashable {
-
+    
     public var id: Int?
     var name: String?
     var address: String?
@@ -11,7 +11,7 @@ public struct Details: Codable, Identifiable, Hashable {
     var suitesAvailability: String?
     var lat: Double?
     var lon: Double?
-
+    
     init(from dict: NSDictionary) {
         id = dict["id"] as? Int
         name = dict["name"] as? String
@@ -35,7 +35,7 @@ public struct Details: Codable, Identifiable, Hashable {
         case lat = "lat"
         case lon = "lon"
     }
-
+    
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
