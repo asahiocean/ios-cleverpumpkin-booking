@@ -8,7 +8,7 @@ struct BadgeBackground: View {
             let curve: CGPoint
             let control: CGPoint
         }
-
+        
         static let segments = [
             Segment(
                 line:    CGPoint(x: 0.6, y: 0.05),
@@ -52,21 +52,21 @@ struct BadgeBackground: View {
                 let o = (w * (1 - s))/2 // offset
                 w *= s
                 path.move(to: CGPoint(x: w * 0.95 + o, y: h * (0.2)))
-
+                
                 HexagonParameters.segments.forEach { segm in
                     path.addLine(to: CGPoint(
-                            x: w * segm.line.x + o,
-                            y: h * segm.line.y
-                        )
+                        x: w * segm.line.x + o,
+                        y: h * segm.line.y
+                    )
                     )
                     path.addQuadCurve(to: CGPoint(
-                            x: w * segm.curve.x + o,
-                            y: h * segm.curve.y
-                        ),
-                        control: CGPoint(
-                            x: w * segm.control.x + o,
-                            y: h * segm.control.y
-                        )
+                        x: w * segm.curve.x + o,
+                        y: h * segm.curve.y
+                    ),
+                    control: CGPoint(
+                        x: w * segm.control.x + o,
+                        y: h * segm.control.y
+                    )
                     )
                 }
             }
@@ -96,7 +96,7 @@ struct RotatedBadgeSymbol: View {
                 let m = w * 0.5 // middle
                 let tw = w * 0.25 // topWidth
                 let th = h * 0.5 // topHeight
-
+                
                 path.addLines([
                     CGPoint(x: m, y: s),
                     CGPoint(x: m - tw, y: th - s),
@@ -125,7 +125,7 @@ struct Badge: View {
         ForEach(0..<Int(Self.count)) { i in
             RotatedBadgeSymbol(
                 angle: .degrees(Double(i) / Self.count * 360.0
-            ))
+                ))
         }
         .opacity(0.5)
     }
