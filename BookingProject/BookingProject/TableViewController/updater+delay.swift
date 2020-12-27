@@ -1,7 +1,7 @@
 import SwiftUI
 
 extension TableViewController {
-        
+    
     static fileprivate var loadview: UIView = {
         var view =  UIView()
         view.clipsToBounds = true
@@ -9,7 +9,7 @@ extension TableViewController {
         if let rootView = rootView.view { view = rootView }
         return view
     }()
-
+    
     internal func loadview() {
         DispatchQueue.main.async {
             let tvb = self.tableView.bounds
