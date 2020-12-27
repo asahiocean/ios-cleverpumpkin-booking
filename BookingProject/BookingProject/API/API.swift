@@ -48,8 +48,7 @@ struct API {
         let session = URLSession.shared
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [.prettyPrinted])
@@ -57,12 +56,10 @@ struct API {
             print(error.localizedDescription)
         }
         
-        let task = session.dataTask(with: request, completionHandler: { (data,response,error) in
+        session.dataTask(with: request, completionHandler: { (data,response,error) in
             guard error == nil, let data = data, let answer = String(data: data, encoding: .utf8) else { return }
             print(answer)
-        })
-        task.resume()
-
+        }).resume()
     }
     
     private init() { }
