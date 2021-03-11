@@ -33,7 +33,6 @@
 		3D93A62C2563313F0066616E /* JSONDecoderEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A62B2563313F0066616E /* JSONDecoderEncoder.swift */; };
 		3D93A632256331650066616E /* extensionCodableTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A631256331650066616E /* extensionCodableTask.swift */; };
 		3D93A64E2563C4C70066616E /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D93A64D2563C4C70066616E /* Handler.swift */; };
-		3D97D5402571277B00DFF4BE /* tableViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D53F2571277B00DFF4BE /* tableViewConfig.swift */; };
 		3D97D548257127FE00DFF4BE /* navigationBarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D547257127FE00DFF4BE /* navigationBarConfig.swift */; };
 		3D97D58A257151B800DFF4BE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D589257151B800DFF4BE /* Storage.swift */; };
 		3D97D5BC2571D8F000DFF4BE /* DelayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D97D5BB2571D8F000DFF4BE /* DelayScreen.swift */; };
@@ -96,7 +95,6 @@
 		3D93A62B2563313F0066616E /* JSONDecoderEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderEncoder.swift; sourceTree = "<group>"; };
 		3D93A631256331650066616E /* extensionCodableTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionCodableTask.swift; sourceTree = "<group>"; };
 		3D93A64D2563C4C70066616E /* Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
-		3D97D53F2571277B00DFF4BE /* tableViewConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewConfig.swift; sourceTree = "<group>"; };
 		3D97D547257127FE00DFF4BE /* navigationBarConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationBarConfig.swift; sourceTree = "<group>"; };
 		3D97D589257151B800DFF4BE /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		3D97D5BB2571D8F000DFF4BE /* DelayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayScreen.swift; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 		3D9063872564377E00D7A81F /* TableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3D97D53F2571277B00DFF4BE /* tableViewConfig.swift */,
 				3D9063802564372800D7A81F /* TableViewController.swift */,
 				3D97D5C72571DA9600DFF4BE /* updater+delay.swift */,
 				3D90639C2564384800D7A81F /* Cell */,
@@ -499,7 +496,6 @@
 				3D93A60F25631BAC0066616E /* HotelModel.swift in Sources */,
 				3D97D5BC2571D8F000DFF4BE /* DelayScreen.swift in Sources */,
 				3DEE71602590D9880037959F /* HotelDetails.swift in Sources */,
-				3D97D5402571277B00DFF4BE /* tableViewConfig.swift in Sources */,
 				3D93A5C5256301B50066616E /* AppDelegate.swift in Sources */,
 				3D97D548257127FE00DFF4BE /* navigationBarConfig.swift in Sources */,
 				3D93A61F256330C00066616E /* URLs.swift in Sources */,

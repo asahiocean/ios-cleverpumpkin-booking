@@ -13,8 +13,13 @@ class TableViewController: UITableViewController {
         loadview()
         updaterHotels()
         tableView.register(UINib(nibName: CustomCell.id, bundle: nil), forCellReuseIdentifier: CustomCell.id)
-        // tableView.register(HostingCell<Cell>.self, forCellReuseIdentifier: "HostingCell<CellView>")
-        tableViewConfig()
+
+        tableView.layoutIfNeeded()
+        tableView.autoresizingMask = TableConfig.autoresizingMask
+        tableView.rowHeight = TableConfig.rowHeight
+        tableView.estimatedRowHeight = TableConfig.estimatedRowHeight
+        tableView.decelerationRate = TableConfig.decelerationRate
+        navigationBarConfig()
     }
     
     override func viewWillAppear(_ animated: Bool) {
