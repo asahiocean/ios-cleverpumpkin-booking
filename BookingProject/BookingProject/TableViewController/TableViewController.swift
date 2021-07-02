@@ -13,7 +13,7 @@ class TableViewController: UITableViewController {
         loadview()
         updaterHotels()
         tableView.register(UINib(nibName: CustomCell.id, bundle: nil), forCellReuseIdentifier: CustomCell.id)
-
+        
         tableView.layoutIfNeeded()
         tableView.autoresizingMask = TableConfig.autoresizingMask
         tableView.rowHeight = TableConfig.rowHeight
